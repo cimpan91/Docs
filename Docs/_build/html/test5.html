@@ -1,0 +1,447 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>RASCIL Galahad and IRIS - CL and job submission &#8212; eMerlin v0.0.3 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="DIRAC install and basic usage" href="test6.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="test6.html" title="DIRAC install and basic usage"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">eMerlin v0.0.3 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="rascil-galahad-and-iris-cl-and-job-submission">
+<h1>RASCIL Galahad and IRIS - CL and job submission<a class="headerlink" href="#rascil-galahad-and-iris-cl-and-job-submission" title="Permalink to this headline">¶</a></h1>
+<p>This documentation follows the steps of the links below:</p>
+<ul class="simple">
+<li>[1]_RASCIL_docker</li>
+<li>[2]_RASCIL_singularity</li>
+<li>[3]_RASCIL_gitlab</li>
+</ul>
+<div class="section" id="rascil-on-galahad-and-iris-cl">
+<h2>RASCIL on Galahad and IRIS (CL):<a class="headerlink" href="#rascil-on-galahad-and-iris-cl" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Set up environment variables (Galahad) under working directory:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>[&lt;your-user&gt;@galahad ~]$ ls /share/nas/&lt;your-user&gt;/
+[&lt;your-user&gt;@galahad ~]$ mkdir /share/nas/&lt;your-user&gt;/.singularity
+[&lt;your-user&gt;@galahad ~]$ export SINGULARITY_CACHEDIR=/share/nas/&lt;youruser&gt;/.singularity
+</pre></div>
+</div>
+</li>
+<li><p class="first">Running on existing docker images</p>
+<p>The RASCIL Dockerfiles are in a separate repository at
+<a class="reference external" href="https://gitlab.com/ska-telescope/rascil-docker">https://gitlab.com/ska-telescope/rascil-docker</a>.</p>
+<p>The docker images for RASCIL are on nexus.engageska-portugal.pt at:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nexus</span><span class="o">.</span><span class="n">engageska</span><span class="o">-</span><span class="n">portugal</span><span class="o">.</span><span class="n">pt</span><span class="o">/</span><span class="n">rascil</span><span class="o">-</span><span class="n">docker</span><span class="o">/</span><span class="n">rascil</span><span class="o">-</span><span class="n">base</span>
+<span class="n">nexus</span><span class="o">.</span><span class="n">engageska</span><span class="o">-</span><span class="n">portugal</span><span class="o">.</span><span class="n">pt</span><span class="o">/</span><span class="n">rascil</span><span class="o">-</span><span class="n">docker</span><span class="o">/</span><span class="n">rascil</span><span class="o">-</span><span class="n">full</span>
+</pre></div>
+</div>
+<p>The first does not have the RASCIL test data but is smaller in size
+(2GB vs 4GB). However, for many of the tests and demonstrations the
+test data is needed.</p>
+</li>
+<li><p class="first">Pull the Rascil image:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>[&lt;your-user&gt;@galahad ~]$ singularity pull RASCIL-full.img
+docker://nexus.engageska-portugal.pt/rascil-docker/rascil-full
+[&lt;your-user&gt;@galahad ~]$ singularity pull RASCIL-base.img
+docker://nexus.engageska-portugal.pt/rascil-docker/rascil-base
+</pre></div>
+</div>
+</li>
+<li><p class="first">Running notebooks</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>[&lt;your-user&gt;@galahad ~]$ singularity exec RASCIL-full.img jupyter
+notebook --no-browser --ip 0.0.0.0  /rascil/examples/notebooks/
+[I 10:51:44.514 NotebookApp] Serving notebooks from local directory:
+/rascil/examples/notebooks
+[I 10:51:44.514 NotebookApp] Jupyter Notebook 6.1.4 is running at:
+[I 10:51:44.514 NotebookApp] http://galahad.ast.man.ac.uk:8888/
+?token=26b1523066c7363b5575dde53d5d7780338bf3dc9cbe2102
+[I 10:51:44.514 NotebookApp]  or http://127.0.0.1:8888/
+?token=26b1523066c7363b5575dde53d5d7780338bf3dc9cbe2102
+[I 10:51:44.514 NotebookApp] Use Control-C to stop this server and shut down all
+kernels (twice to skip confirmation).
+[C 10:51:44.519 NotebookApp]
+
+To access the notebook, open this file in a browser:
+    file:///home/&lt;your-user&gt;/.local/share/jupyter/runtime/nbserver-21541-open.html
+Or copy and paste one of these URLs:
+    http://galahad.ast.man.ac.uk:8888/
+    ?token=26b1523066c7363b5575dde53d5d7780338bf3dc9cbe2102
+    or http://127.0.0.1:8888/
+    ?token=26b1523066c7363b5575dde53d5d7780338bf3dc9cbe2102
+[I 10:51:56.498 NotebookApp] 302 GET
+/?token=26b1523066c7363b5575dde53d5d7780338bf3dc9cbe2102
+(10.242.203.134) 1.04ms
+
+
+Access the notebooks on browser using http://galahad.ast.man.ac.uk:8888/
+?token=26b1523066c7363b5575dde53d5d7780338bf3dc9cbe2102
+
+Use CTRL &lt;C&gt; to shut down notebook server
+</pre></div>
+</div>
+</li>
+<li><p class="first">Running RASCIL as a cluster:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>[&lt;your-user&gt;@galahad ~]$ singularity exec RASCIL-full.img
+python3 /rascil/cluster_tests/ritoy/cluster_test_ritoy.py
+
+Creating scheduler and 4 workers
+&lt;Client: &#39;tcp://127.0.0.1:46212&#39; processes=4 threads=4, memory=67.34 GB&gt;
+53870592.0
+*** Successfully reached end in 26.5 seconds ***
+
+Note: use VNCViewer (see Appendix) to access links on Galahad, like Diagnostics page.
+</pre></div>
+</div>
+</li>
+<li><p class="first">Running example script:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>[&lt;your-user&gt;@galahad ~]$ singularity exec RASCIL-full.img python3
+/rascil/examples/scripts/imaging.py
+
+creates 3 images output
+[&lt;your-user&gt;@galahad ~]$ ls
+ imaging_dirty.fits  imaging_psf.fits  imaging_restored.fits
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="job-submission-galahad">
+<h2>Job submission Galahad<a class="headerlink" href="#job-submission-galahad" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>[&lt;your-user&gt;@galahad ~]$ cat  slrascil1.sh
+#!/bin/bash
+#SBATCH --ntasks 1
+#SBATCH --time 5:0
+#SBATCH --output=test_%j.log
+pwd; hostname; date
+
+module load python37base gcc920
+CMD=&quot;singularity exec /home/&lt;your-user&gt;/RASCIL-full.img python3
+/rascil/examples/scripts/imaging.py&quot;
+eval $CMD
+
+[&lt;your-user&gt;@galahad ~]$  sbatch slrascil1.sh
+Submitted batch job 3404
+
+
+[&lt;your-user&gt;@galahad ~]$  squeue
+JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+3404   CLUSTER slrascil   &lt;your-user&gt;R       0:18      1 compute-0-7
+</pre></div>
+</div>
+</div>
+<div class="section" id="job-submission-iris">
+<h2>Job submission IRIS<a class="headerlink" href="#job-submission-iris" title="Permalink to this headline">¶</a></h2>
+<p>From the server where dirac is installed:</p>
+<ul>
+<li><p class="first">start proxy before using any dms commands</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>bash-4.2$ source bashrc
+bash-4.2$ dirac-proxy-init -g skatelescope.eu_user -M
+</pre></div>
+</div>
+</li>
+<li><p class="first">Add the RASCIL container to the filecathalog using command
+“dirac-dms-add-file”</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dirac</span><span class="o">-</span><span class="n">dms</span><span class="o">-</span><span class="n">add</span><span class="o">-</span><span class="n">file</span> <span class="n">LFN</span><span class="p">:</span><span class="o">/</span><span class="n">skatelescope</span><span class="o">.</span><span class="n">eu</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">c</span><span class="o">/&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">user</span><span class="o">&gt;/</span><span class="n">rascil</span><span class="o">/</span><span class="n">RASCIL</span><span class="o">-</span><span class="n">full</span><span class="o">.</span><span class="n">img</span>
+<span class="n">RASCIL</span><span class="o">-</span><span class="n">full</span><span class="o">.</span><span class="n">img</span>  <span class="n">UKI</span><span class="o">-</span><span class="n">NORTHGRID</span><span class="o">-</span><span class="n">MAN</span><span class="o">-</span><span class="n">HEP</span><span class="o">-</span><span class="n">disk</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">check where the files has been uploaded using command
+“dirac-dms-filecatalog-cli”</p>
+</li>
+</ul>
+<div class="section" id="job-submission-submit-jdl">
+<h3>Job submission - submit .jdl<a class="headerlink" href="#job-submission-submit-jdl" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">create .jdl and .sh files</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>cat simpleR1.jdl
+JobName = &quot;InputAndOuputSandbox&quot;;
+Executable = &quot;testR1.sh&quot;;
+StdOutput = &quot;StdOut&quot;;
+StdError = &quot;StdErr&quot;;
+InputSandbox = {&quot;testR1.sh&quot;};
+InputData = {&quot;LFN:/skatelescope.eu/user/c/&lt;your-user&gt;/rascil/RASCIL-full.img&quot;};
+OutputSandbox = {&quot;StdOut&quot;,&quot;StdErr&quot;};
+OutputData={&quot;imaging_dirty.fits&quot;,&quot;imaging_psf.fits&quot;,&quot;imaging_restored.fits&quot;};
+OutputSE =&quot;UKI-NORTHGRID-MAN-HEP-disk&quot;;
+Site = &quot;LCG.UKI-NORTHGRID-MAN-HEP.uk&quot;;
+
+
+cat testR1.sh
+#!/bin/bash
+singularity exec --cleanenv -H $PWD:/srv --pwd /srv -C RASCIL-full.img
+python3 /rascil/examples/scripts/imaging.py;
+</pre></div>
+</div>
+</li>
+<li><p class="first">Submit the job</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>bash-4.2$ dirac-wms-job-submit simpleR1.jdl
+JobID = 25260750
+
+bash-4.2$ dirac-wms-job-status 25260750
+JobID=25260750 Status=Running; MinorStatus=Input Data Resolution;
+Site=LCG.UKINORTHGRID-MAN-HEP.uk;
+
+bash-4.2$ dirac-wms-job-status 25260750
+JobID=25260750 Status=Done; MinorStatus=Execution Complete;
+Site=LCG.UKINORTHGRID-MAN-HEP.uk;
+</pre></div>
+</div>
+</li>
+<li><p class="first">Get output data and output file</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>bash-4.2$ dirac-wms-job-get-output-data 25336768
+Job 25336768 output data retrieved
+bash-4.2$ ls
+-rw-r--r--. 1 &lt;your-user&gt; users6 2102400 May 14 17:32 imaging_dirty.fits
+-rw-r--r--. 1 &lt;your-user&gt; users6 2102400 May 14 17:32 imaging_psf.fits
+-rw-r--r--. 1 &lt;your-user&gt; users6 2102400 May 14 17:32 imaging_restored.fits
+
+bash-4.2$ dirac-wms-job-get-output 25336768
+Job output sandbox retrieved in
+/raid/scratch/&lt;your-user&gt;/dirac_ui/tests/rascilTests/ 25336768/
+bash-4.2$ cd 25336768
+bash-4.2$ ls
+StdErr StdOut
+bash-4.2$ cat StdErr
+INFO: Convert SIF file to sandbox...
+INFO: Cleaning up image...
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="job-submission-submit-py">
+<h3>Job submission - submit .py<a class="headerlink" href="#job-submission-submit-py" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p class="first">Set up environment variables:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>#SET THE PATH PYTHON 2.7 INTO $PATH
+#PATH to python 2.7 added
+eg bash-4.2$ export PATH=/usr/local/casa/bin/python:$PATH
+</pre></div>
+</div>
+</li>
+<li><p class="first">the job to be submitted and the .sh script</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>bash-4.2$ cat jobpy.py
+import os
+import sys
+import time
+# setup DIRAC
+from DIRAC.Core.Base import Script
+Script.parseCommandLine(ignoreErrors=False)
+from DIRAC.Interfaces.API.Job import Job
+from DIRAC.Interfaces.API.Dirac import Dirac
+from DIRAC.Core.Security.ProxyInfo import getProxyInfo
+SitesList = [&#39;LCG.UKI-NORTHGRID-MAN-HEP.uk&#39;]
+SEList = [&#39;UKI-NORTHGRID-MAN-HEP-disk&#39;]
+dirac = Dirac()
+j = Job(stdout=&#39;StdOut&#39;, stderr=&#39;StdErr&#39;)
+j.setName(&#39;TestJob&#39;)
+j.setInputSandbox([&quot;testR1py.sh&quot;])
+j.setInputData([&#39;LFN:/skatelescope.eu/user/c/&lt;your-user&gt;/rascil/RASCILfull.img&#39;])
+j.setOutputSandbox([&#39;StdOut&#39;,&#39;StdErr&#39;])
+j.setOutputData([&#39;imaging_dirty.fits&#39;,&#39;imaging_psf.fits&#39;,&#39;imaging_restored.fits&#39;],
+outputSE=&#39;UKI-NORTHGRID-MAN-HEP-disk&#39;)
+j.setExecutable(&#39;testR1py.sh&#39;)
+jobID = dirac.submitJob(j)
+print &#39;Submission Result: &#39;, jobID
+
+
+bash-4.2$ cat testR1py.sh
+#!/bin/bash
+singularity exec --cleanenv -H $PWD:/srv --pwd /srv -C RASCIL-full1.img
+python3 /rascil/examples/scripts/imaging.py
+</pre></div>
+</div>
+</li>
+<li><p class="first">Submitting the job</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>bash-4.2$ python jobpy.py
+Submission Result: {&#39;requireProxyUpload&#39;: False, &#39;OK&#39;: True, &#39;rpcStub&#39;:
+((&#39;WorkloadManagement/JobManag er&#39;, {&#39;delegatedDN&#39;:
+None, &#39;timeout&#39;: 600, &#39;skipCACheck&#39;: False, &#39;keepAliveLapse&#39;: 150,
+&#39;delegatedGroup &#39;: None}), &#39;submitJob&#39;, (&#39;[ \n
+Origin = DIRAC;\n Executable = &quot;$DIRACROOT/scripts/dirac-jobexec&quot;;
+\n StdError = StdErr;\n LogLevel = info;\n OutputSE = UKI-NORTHGRIDMAN-
+HEP-disk;\n InputSa ndbox = \n {\n
+&quot;testR1py.sh&quot;,\n &quot;SB:GridPPSandboxSE|/SandBox/i/iulia.c.cim
+pan.skatelescope.eu_user/cf8/ca6/cf8ca689995e24c01c068eb6f34126b8.tar.bz2&quot;\n
+};\n JobName = T estJob;\n Priority = 1;\n
+Arguments = &quot;jobDescription.xml -o LogLevel=info&quot;;\n JobGroup = skat
+elescope.eu;\n OutputSandbox = \n {\n StdOut,\n
+StdErr,\n Sc ript1_testR1py.sh.log\n
+};\n StdOutput = StdOut;\n InputData = LFN:/skatelescope.eu/user/c
+/&lt;your-user&gt;/rascil/RASCIL-full1.img;\n JobType = User;\n OutputData = \n
+{\n imagin g_dirty.fits,\n
+imaging_psf.fits,\n imaging_restored.fits\n };\n]&#39;,)), &#39;Va
+lue&#39;: 25344748, &#39;JobID&#39;: 25344748}
+</pre></div>
+</div>
+</li>
+<li><p class="first">Get the results</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>bash-4.2$ dirac-wms-job-get-output 25344748
+Job output sandbox retrieved in
+/raid/scratch/&lt;your-user&gt;/dirac_ui/tests/rascilTests/25344748/
+
+bash-4.2$ cd 25344748
+bash-4.2$ ls
+Script1_testR1py.sh.log StdOut
+
+bash-4.2$ dirac-wms-job-get-output-data 25344748
+Job 25344748 output data retrieved
+bash-4.2$ ls
+imaging_dirty.fits imaging_psf.fits imaging_restored.fits
+Script1_testR1py.sh.log StdOut
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="appendix">
+<h2>Appendix<a class="headerlink" href="#appendix" title="Permalink to this headline">¶</a></h2>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>You run vncserver on galahad (already installed). On your windows PC use:
+https://www.tightvnc.com/download-old.php as your vnc viewer.
+
+When you run vncserver for the first time you will set up a password.
+It will report it has created a virtual display galahad.ast.man.ac.uk:X
+The X will be a number. You then use that address in your vnc viewer
+
+[&lt;your-user&gt;@galahad ~]$ vncserver
+[&lt;your-user&gt;@galahad ~]$ vncserver -kill :3
+Killing Xvnc process ID 35841
+</pre></div>
+</div>
+<p>With vnc I would suggest editing the default .vnc/xstartup file (created
+after you run vncserver for the first time) to change the last line to
+run /usr/bin/icewm as the window manager rather than xinitrc. You should
+then kill off your first vncserver and run it again to pick up the
+change. This avoids a bug where sometimes the VNC just displays a black
+screen.</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>[&lt;your-user&gt;@galahad ~]$ cat .vnc/xstartup
+#!/bin/shunset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+#exec /etc/X11/xinit/xinitrc
+/usr/bin/icewm
+[&lt;your-user&gt;@galahad ~]$ vncserver #restarting the server
+</pre></div>
+</div>
+<p>How to find the host for the for the diagnostics page? It would be
+whichever host has started it, so use squeue to see what host is running
+your job and then it would be for example <a class="reference external" href="http://compute-0-5:8787">http://compute-0-5:8787</a></p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>[&lt;your-user&gt;@galahad ~]$ squeue
+</pre></div>
+</div>
+<table class="docutils footnote" frame="void" id="id1" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td><a class="reference external" href="https://ska-telescope.gitlab.io/rascil/installation/RASCIL_docker.html#running-on-existing-docker-images">https://ska-telescope.gitlab.io/rascil/installation/RASCIL_docker.html#running-on-existing-docker-images</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id2" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td><a class="reference external" href="https://ska-telescope.gitlab.io/rascil/installation/RASCIL_docker.html#singularity">https://ska-telescope.gitlab.io/rascil/installation/RASCIL_docker.html#singularity</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[3]</td><td><a class="reference external" href="https://gitlab.com/ska-telescope/rascil">https://gitlab.com/ska-telescope/rascil</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">RASCIL Galahad and IRIS - CL and job submission</a><ul>
+<li><a class="reference internal" href="#rascil-on-galahad-and-iris-cl">RASCIL on Galahad and IRIS (CL):</a></li>
+<li><a class="reference internal" href="#job-submission-galahad">Job submission Galahad</a></li>
+<li><a class="reference internal" href="#job-submission-iris">Job submission IRIS</a><ul>
+<li><a class="reference internal" href="#job-submission-submit-jdl">Job submission - submit .jdl</a></li>
+<li><a class="reference internal" href="#job-submission-submit-py">Job submission - submit .py</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#appendix">Appendix</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="test6.html"
+                        title="previous chapter">DIRAC install and basic usage</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/test5.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="test6.html" title="DIRAC install and basic usage"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">eMerlin v0.0.3 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, eMerlin.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+    </div>
+  </body>
+</html>
