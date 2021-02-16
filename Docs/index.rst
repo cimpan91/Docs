@@ -12,6 +12,7 @@ Welcome to eMerlin's documentation!
 
    test6
    test5
+   test7
 
 
 Indices and tables

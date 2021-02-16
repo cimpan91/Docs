@@ -2,9 +2,6 @@
 DIRAC install and basic usage
 =============================
 
-:Author: Iulia Cimpan
-:Date:   7 Sept 2020
-
 Introduction
 
 -  get a grid certificate
@@ -84,8 +81,8 @@ Overview of directories on your server
    store large data. You need DIRAC installation to
    be able to copy files to FC:/ (IRIS)
 
- DIRAC install
-=============
+DIRAC install
+==============
 
 **Details at:**  [7]_
 
@@ -101,8 +98,6 @@ Overview of directories on your server
 
 .. _dirac-install-1:
 
- DIRAC install
-=============
 
 **Details at:**  [8]_
 
@@ -125,8 +120,7 @@ Overview of directories on your server
 
 .. _dirac-install-2:
 
- DIRAC install
-=============
+
 
 **Details at:**  [9]_
 
@@ -143,10 +137,7 @@ Overview of directories on your server
 
 .. _dirac-install-3:
 
- DIRAC install
-=============
-
-**Details at:**  [10]_
+**Details at:**  [9]_
 
 .. code:: python
 
@@ -165,6 +156,7 @@ Overview of directories on your server
    #skatelescope.eu it is the VO I am assigned to
    Generating proxy...
    Enter Certificate password:
+
 
  Submit a simple job
 ===================
@@ -190,7 +182,7 @@ Overview of directories on your server
  Monitor a simple job
 ====================
 
-**Details at:**  [12]_
+**Details at:**  [11]_
 
 .. code:: python
 
@@ -207,8 +199,8 @@ Overview of directories on your server
 Web-link <https://dirac.gridpp.ac.uk:8443/DIRAC/>`__ (see
 Applications/Job Monitor -> Owner (your name) -> submit)
 
- Put RASCIL.img in a file catalog
-================================
+Put RASCIL.img in a file catalog
+=================================
 
 **Details at:**  [13]_
 
@@ -227,7 +219,7 @@ Applications/Job Monitor -> Owner (your name) -> submit)
 Submitting RASCIL job
 =====================
 
-**Details at:**  [14]_
+**Details at:**  [11]_
 
 .. code:: python
 
@@ -252,7 +244,7 @@ Submitting RASCIL job
 Managing RASCIL job
 ===================
 
-**Details at:**  [15]_
+**Details at:**  [11]_
 
 .. code:: python
 
@@ -270,7 +262,7 @@ Managing RASCIL job
 Get Output Data RASCIL job
 ==========================
 
-**Details at:**  [16]_
+**Details at:**  [11]_
 
 .. code:: python
 
@@ -325,7 +317,7 @@ Useful Links
 
 .. [4]
    register for a VO:
-   https://voms.gridpp.ac.uk:8443/voms/gridpp/register/start.action
+   https://voms.gridpp.ac.uk:8443/voms/skatelescope.eu/user/home.action
 
 .. [5]
    DIRAC in browser: https://dirac.gridpp.ac.uk:8443/DIRAC/
@@ -346,30 +338,14 @@ Useful Links
    Install Dirac:
    https://github.com/as595/SKA-IRIS/blob/master/DIRACUI/InstallDirac.sh
 
-.. [10]
-   Install Dirac:
-   https://github.com/as595/SKA-IRIS/blob/master/DIRACUI/InstallDirac.sh
-
 .. [11]
-   Simple Job:
-   https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/UserJobs/CommandLine/index.html
-
-.. [12]
    Simple Job:
    https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/UserJobs/CommandLine/index.html
 
 .. [13]
    File Catalog:
    https://dirac.readthedocs.io/en/latest/UserGuide/CommandReference/DataManagement/index.html
+   
 
-.. [14]
-   Simple Job:
-   https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/UserJobs/CommandLine/index.html
-
-.. [15]
-   Simple Job:
-   https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/UserJobs/CommandLine/index.html
-
-.. [16]
-   Simple Job:
-   https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/UserJobs/CommandLine/index.html
+:Author: Iulia Cimpan
+:Date:   7 Sept 2020

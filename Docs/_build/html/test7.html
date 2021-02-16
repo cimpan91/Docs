@@ -1,0 +1,286 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Benchmarking processing performance &#8212; eMerlin v0.0.3 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="RASCIL Galahad and IRIS - CL and job submission" href="test5.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="test5.html" title="RASCIL Galahad and IRIS - CL and job submission"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">eMerlin v0.0.3 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="benchmarking-processing-performance">
+<h1>Benchmarking processing performance<a class="headerlink" href="#benchmarking-processing-performance" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="benchmarking-and-environment-details">
+<h2>Benchmarking and environment details:<a class="headerlink" href="#benchmarking-and-environment-details" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>where do we run the job</li>
+<li>how much memory and how much processing the RASCIL imaging script is
+using</li>
+<li>highly parallel so we may be able to use many processor nodes - how
+much memory do we need?</li>
+<li>profiling doing: benchmarks in the memory and efficiency use of nodes</li>
+</ul>
+<div class="section" id="rules-iris-imaging-script">
+<h3>Rules IRIS imaging script<a class="headerlink" href="#rules-iris-imaging-script" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>we have the component to run it: eg. RASCIL container on CVMFS</li>
+<li>the user provides script and data</li>
+<li>we provide:<ul>
+<li>the .jdl model</li>
+<li>the singularity container on CVMFS (always latest release) :</li>
+<li>environment has to be fully specified in container</li>
+<li>the container doesn’t need to be uploaded by the user</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="the-jdl-model-rules">
+<h3>The .jdl model rules:<a class="headerlink" href="#the-jdl-model-rules" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>the singularity container has to be on CVMFS (always latest release)</li>
+<li>scripts should be only input sandbox (not on InputData)</li>
+<li>large input/output datasets and data (including .tar .gz) should be
+on file catalogue only (LFN) - use InputData and OutputData
+parameters</li>
+<li>OutputSandbox can contain standard output (StdOut), standard error
+(StdErr), small log files, job.info etc (only small files outputs)</li>
+</ul>
+</div>
+</div>
+<div class="section" id="the-jdl-and-sh-models-samples">
+<h2>The .jdl and .sh models samples<a class="headerlink" href="#the-jdl-and-sh-models-samples" title="Permalink to this headline">¶</a></h2>
+<p><strong>Specific .jdl model with test data set for efficiency use of nodes:</strong></p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jobName</span> <span class="o">=</span> <span class="s2">&quot;%n_RASCILpipeline&quot;</span><span class="p">;</span>
+
+<span class="n">Parameters</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span>
+<span class="n">ParameterStart</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+<span class="n">ParameterStep</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+
+<span class="n">Executable</span> <span class="o">=</span> <span class="s2">&quot;trial.sh&quot;</span><span class="p">;</span>
+
+<span class="n">StdOutput</span> <span class="o">=</span> <span class="s2">&quot;StdOut_%n&quot;</span><span class="p">;</span>
+<span class="n">StdError</span> <span class="o">=</span> <span class="s2">&quot;StdErr_%n&quot;</span><span class="p">;</span>
+
+<span class="n">Tags</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;8Processors&quot;</span><span class="p">,</span><span class="s2">&quot;skatelescope.eu.hmem&quot;</span><span class="p">};</span> <span class="c1"># 2Processors, 4Processors,..,32Processors</span>
+
+<span class="n">SitesList</span> <span class="o">=</span> <span class="s2">&quot;LCG.UKI-NORTHGRID-MAN-HEP.uk&quot;</span><span class="p">;</span>
+<span class="n">SEList</span> <span class="o">=</span> <span class="s2">&quot;UKI-NORTHGRID-MAN-HEP-disk&quot;</span><span class="p">;</span>
+
+<span class="n">InputSandbox</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;trial.sh&quot;</span><span class="p">,</span><span class="s2">&quot;input_file1.json&quot;</span><span class="p">};</span>
+<span class="n">InputData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;LFN:/skatelescope.eu/user/c/cimpan/rascil/</span>
+<span class="n">emerlin_rascil_pipeline_for1252_1</span><span class="o">.</span><span class="n">tar</span><span class="s2">&quot;,</span>
+<span class="s2">&quot;LFN:/skatelescope.eu/user/w/willice.obonyo/IRIS_RASCIL_test/1252+5634.tar&quot;</span><span class="p">};</span>
+
+<span class="n">OutputSandbox</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;StdOut_%n&quot;</span><span class="p">,</span><span class="s2">&quot;StdErr_%n&quot;</span><span class="p">,</span><span class="s2">&quot;*.log&quot;</span><span class="p">};</span>
+<span class="n">OutputData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;outputs.tar&quot;</span><span class="p">};</span>
+
+<span class="n">OutputSE</span> <span class="o">=</span> <span class="s2">&quot;UKI-NORTHGRID-MAN-HEP-disk&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Specific .jdl model with test data set for memory benchmark:</strong></p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jobName</span> <span class="o">=</span> <span class="s2">&quot;RASCILpipeline&quot;</span><span class="p">;</span>
+
+<span class="n">Executable</span> <span class="o">=</span> <span class="s2">&quot;trial.sh&quot;</span><span class="p">;</span>
+
+<span class="n">StdOutput</span> <span class="o">=</span> <span class="s2">&quot;StdOut&quot;</span><span class="p">;</span>
+<span class="n">StdError</span> <span class="o">=</span> <span class="s2">&quot;StdErr&quot;</span><span class="p">;</span>
+
+<span class="n">Tags</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;8Processors&quot;</span><span class="p">,</span><span class="s2">&quot;skatelescope.eu.hmem&quot;</span><span class="p">};</span>
+
+<span class="n">SitesList</span> <span class="o">=</span> <span class="s2">&quot;LCG.UKI-NORTHGRID-MAN-HEP.uk&quot;</span><span class="p">;</span>
+<span class="n">SEList</span> <span class="o">=</span> <span class="s2">&quot;UKI-NORTHGRID-MAN-HEP-disk&quot;</span><span class="p">;</span>
+
+<span class="n">InputSandbox</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;trial.sh&quot;</span><span class="p">,</span><span class="s2">&quot;input_file1.json&quot;</span><span class="p">};</span>
+<span class="n">InputData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;LFN:/skatelescope.eu/user/c/cimpan/rascil/</span>
+<span class="n">prmon_2</span><span class="o">.</span><span class="mf">0.2</span><span class="n">_x86_64</span><span class="o">-</span><span class="n">static</span><span class="o">-</span><span class="n">gnu93</span><span class="o">-</span><span class="n">opt</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span><span class="s2">&quot;,</span>
+<span class="s2">&quot;LFN:/skatelescope.eu/user/c/cimpan/rascil/emerlin_rascil_pipeline_for1252_1.tar&quot;</span><span class="p">,</span>
+<span class="s2">&quot;LFN:/skatelescope.eu/user/w/willice.obonyo/IRIS_RASCIL_test/1252+5634.tar&quot;</span><span class="p">};</span>
+
+<span class="n">OutputSandbox</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;StdOut&quot;</span><span class="p">,</span><span class="s2">&quot;StdErr&quot;</span><span class="p">,</span><span class="s2">&quot;job.info&quot;</span><span class="p">,</span><span class="s2">&quot;*.log&quot;</span><span class="p">};</span>
+<span class="n">OutputData</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;outputs.tar&quot;</span><span class="p">,</span><span class="s2">&quot;prmon.txt&quot;</span><span class="p">,</span><span class="s2">&quot;prmon.json&quot;</span><span class="p">};</span>
+
+<span class="n">OutputSE</span> <span class="o">=</span> <span class="s2">&quot;UKI-NORTHGRID-MAN-HEP-disk&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><strong>Specific .sh model used for both .jdl above:</strong></p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>vi trial.sh
+#printenv;
+echo &quot;==============================================&quot;;
+singularity --version;
+
+echo &quot;Printing parameters&quot;
+echo $0
+echo $1 #nprocs
+echo $2 #id_start
+echo $3 #id_end
+echo $4 #experiment
+echo &quot;Processors: ${OMP_NUM_THREADS}&quot;;
+
+tar -xzvf 1252+5634.tar
+tar -xzvf emerlin_rascil_pipeline_for1252_1.tar
+
+echo &quot;Extracting Process Monitor - This is to monitor the processes that we will run&quot;
+
+mkdir -p prmon &amp;&amp; tar xf prmon_2.0.2_x86_64-static-gnu93-opt.tar.gz -C prmon
+--strip-components 1
+
+echo &quot;Running prmon&quot;
+./prmon/bin/prmon -p $$ -i 0 -u &amp;
+
+
+time singularity exec --cleanenv -H $PWD:/srv --pwd /srv -C
+/cvmfs/sw.skatelescope.eu/images/rascil.img python3
+emerlin_rascil_pipeline/erp2_script.py --params input_file1.json
+
+tar czf outputs.tar *.fits
+</pre></div>
+</div>
+<div class="section" id="how-jdl-model-for-efficiency-use-of-nodes-modelcpu-jdl-works">
+<h3>How .jdl model for efficiency use of nodes (modelcpu.jdl) works:<a class="headerlink" href="#how-jdl-model-for-efficiency-use-of-nodes-modelcpu-jdl-works" title="Permalink to this headline">¶</a></h3>
+<p>The .jdl can be used for 2Processors, 4Processors,..,32Processors
+Parameters=3; means 3 jobs will be submitted (you can also choose
+Parameters=10);</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>bash-4.2$ dirac-wms-job-submit modelcpu.jdl
+JobID = [26381707, 26381708, 26381709]
+Output data and logs
+bash-4.2$ dirac-wms-job-get-output 26381829
+bash-4.2$ dirac-wms-job-get-output-data 26381829
+Job 26381829 output data retrieved
+bash-4.2$ ls
+erp.log outputs.tar StdErr_2 StdOut_2
+bash-4.2$ tar -xzvf outputs.tar
+eMERLIN_testing_pipeline_1252+5634_cip_deconvolved_moment0.fits
+eMERLIN_testing_pipeline_1252+5634_cip_residual_moment0.fits
+eMERLIN_testing_pipeline_1252+5634_cip_restored_moment0.fits
+</pre></div>
+</div>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>We use the benchmarking script:
+bash-4.2$ ./benchm 26381707 26381708 26381709
+</pre></div>
+</div>
+<p>The output is stored in paramslog.csv (see Figure <a class="reference external" href="#fig:param">1</a>),
+which can be opened on own workstation using Excel.</p>
+<div class="figure" id="fig-param">
+<img alt="Jobs parameters" src="_images/table.png" />
+<p class="caption"><span class="caption-text">Jobs parameters</span></p>
+</div>
+<p>Efficiency is calculated as TotalCPUTime(s)/(WallClockTime(s)*Number of
+Processors) Mean and standard deviation can be calculated on efficiency
+and then error bars can be plotted against mean WallClockTime(s). Below
+is a plot for 10 jobs ran on processors 2 to 32 (see Figure
+<a class="reference external" href="#fig:meaneff">2</a>).</p>
+<div class="figure" id="fig-meaneff">
+<img alt="TotalCPUTime(s)/(WallClockTime(s)*Number of Processors)" src="_images/1252meaneff.png" />
+<p class="caption"><span class="caption-text">TotalCPUTime(s)/(WallClockTime(s)*Number of Processors)</span></p>
+</div>
+</div>
+<div class="section" id="how-jdl-model-for-efficiency-use-of-nodes-modelm-jdl-works">
+<h3>How .jdl model for efficiency use of nodes (modelm.jdl) works:<a class="headerlink" href="#how-jdl-model-for-efficiency-use-of-nodes-modelm-jdl-works" title="Permalink to this headline">¶</a></h3>
+<p>The model outputs files like “prmon.txt”,”prmon.json” where “prmon.txt”
+can be plotted using “prmon_plot.py” Example of plots are in Figure
+<a class="reference external" href="#fig:pr1252">3</a>:</p>
+<div class="figure" id="fig-pr1252">
+<img alt="TotalCPUTime(s)/(WallClockTime(s)*Number of Processors)" src="_images/pr1252.png" />
+<p class="caption"><span class="caption-text">TotalCPUTime(s)/(WallClockTime(s)*Number of Processors)</span></p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Benchmarking processing performance</a><ul>
+<li><a class="reference internal" href="#benchmarking-and-environment-details">Benchmarking and environment details:</a><ul>
+<li><a class="reference internal" href="#rules-iris-imaging-script">Rules IRIS imaging script</a></li>
+<li><a class="reference internal" href="#the-jdl-model-rules">The .jdl model rules:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-jdl-and-sh-models-samples">The .jdl and .sh models samples</a><ul>
+<li><a class="reference internal" href="#how-jdl-model-for-efficiency-use-of-nodes-modelcpu-jdl-works">How .jdl model for efficiency use of nodes (modelcpu.jdl) works:</a></li>
+<li><a class="reference internal" href="#how-jdl-model-for-efficiency-use-of-nodes-modelm-jdl-works">How .jdl model for efficiency use of nodes (modelm.jdl) works:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="test5.html"
+                        title="previous chapter">RASCIL Galahad and IRIS - CL and job submission</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/test7.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="test5.html" title="RASCIL Galahad and IRIS - CL and job submission"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">eMerlin v0.0.3 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, eMerlin.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+    </div>
+  </body>
+</html>
