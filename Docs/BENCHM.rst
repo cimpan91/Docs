@@ -163,9 +163,12 @@ Parameters=10);
    eMERLIN_testing_pipeline_1252+5634_cip_residual_moment0.fits
    eMERLIN_testing_pipeline_1252+5634_cip_restored_moment0.fits
 
+
+
+We use the benchmarking script: [1]_
+
 .. code:: python
 
-   We use the benchmarking script:
    bash-4.2$ ./benchm 26381707 26381708 26381709
 
 The output is stored in paramslog.csv (see Figure `1 <#fig:param>`__),
@@ -201,3 +204,6 @@ can be plotted using “prmon_plot.py” Example of plots are in Figure
    :name: fig:pr1252
 
    TotalCPUTime(s)/(WallClockTime(s)*Number of Processors)
+   
+.. [1]
+   https://github.com/cimpan91/Docs/blob/main/Docs/benchm
