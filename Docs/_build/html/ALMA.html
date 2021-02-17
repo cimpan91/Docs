@@ -1,0 +1,155 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ALMA RASCIL vs. ALMA CASA &#8212; eMerlin v0.0.3 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Benchmarking processing performance" href="BENCHM.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="BENCHM.html" title="Benchmarking processing performance"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">eMerlin v0.0.3 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="alma-rascil-vs-alma-casa">
+<h1>ALMA RASCIL vs. ALMA CASA<a class="headerlink" href="#alma-rascil-vs-alma-casa" title="Permalink to this headline">¶</a></h1>
+<p>This documentation offers CASA vs. RASCIL scripts on ALMA datasets, for results comparison:</p>
+<ul class="simple">
+<li><a class="footnote-reference" href="#id5" id="id1">[1]</a> ALMA RASCIL</li>
+<li><a class="footnote-reference" href="#id6" id="id2">[2]</a> ALMA CASA</li>
+</ul>
+<p>Three ALMA datasets are already uploaded under LFN, these are: HLTau_Band6, HLTau_Band7 and Mira_Band6.</p>
+<div class="section" id="alma-rascil">
+<h2>ALMA RASCIL<a class="headerlink" href="#alma-rascil" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Scripts:</p>
+<p>Folder alma_rascil with all scripts <a class="footnote-reference" href="#id7" id="id3">[3]</a> Download files and submit to IRIS three jobs, by using the below command:</p>
+</li>
+</ul>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>$ dirac-wms-job-submit alma_rascil.jdl
+</pre></div>
+</div>
+</div>
+<div class="section" id="alma-casa">
+<h2>ALMA CASA<a class="headerlink" href="#alma-casa" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Scripts:</p>
+<p>Folder alma_casa with all scripts <a class="footnote-reference" href="#id8" id="id4">[4]</a> Download files and submit to IRIS three jobs, by using the below command:</p>
+</li>
+</ul>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>$ dirac-wms-job-submit alma_casa.jdl
+</pre></div>
+</div>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><a class="reference external" href="https://ska-telescope.gitlab.io/external/rascil/installation/RASCIL_docker.html#singularity">https://ska-telescope.gitlab.io/external/rascil/installation/RASCIL_docker.html#singularity</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td><a class="reference external" href="https://casaguides.nrao.edu/index.php/ALMA2014_LBC_SVDATA">https://casaguides.nrao.edu/index.php/ALMA2014_LBC_SVDATA</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id7" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td><a class="reference external" href="https://github.com/cimpan91/Docs/tree/main/Docs/alma_rascil">https://github.com/cimpan91/Docs/tree/main/Docs/alma_rascil</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id8" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td><a class="reference external" href="https://github.com/cimpan91/Docs/tree/main/Docs/alma_casa">https://github.com/cimpan91/Docs/tree/main/Docs/alma_casa</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">ALMA RASCIL vs. ALMA CASA</a><ul>
+<li><a class="reference internal" href="#alma-rascil">ALMA RASCIL</a></li>
+<li><a class="reference internal" href="#alma-casa">ALMA CASA</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="BENCHM.html"
+                        title="previous chapter">Benchmarking processing performance</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ALMA.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="BENCHM.html" title="Benchmarking processing performance"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">eMerlin v0.0.3 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, eMerlin.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.5.
+    </div>
+  </body>
+</html>

@@ -8,11 +8,12 @@ Welcome to eMerlin's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Contents(under construction):
 
-   test6
-   test5
-   test7
+   DIRAC_UI
+   RASCIL
+   BENCHM
+   ALMA
 
 
 Indices and tables
