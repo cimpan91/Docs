@@ -1,0 +1,42 @@
+#!/bin/bash
+
+E_BADARGS=85
+
+if [ ! -n "$1" ]
+then
+  echo "Usage: `basename $0` argument1 argument2 etc."
+  exit $E_BADARGS
+fi 
+
+file="logfile.csv"
+if [ -f $file ] ; then
+  rm $file
+fi
+
+index=1      
+echo "Parameter list:" >> logfile.csv 
+#dirac-wms-job-parameters $1 |awk -e '$1 ~ /\<MemoryUsed\>/ {print $0}' | awk  --field-separator=":" '{print $1;}' | awk  --field-separator="'" '{print $2;}' >> logfile.csv
+#dirac-wms-job-parameters $1 |awk -e '$1 ~ /Memory\(kB\)/ {print $0}' | awk  --field-separator=":" '{print $1;}' | awk  --field-separator="'" '{print $2;}' >> logfile.csv
+dirac-wms-job-parameters $1 |awk -e '$1 ~ /CPU/ {print $0}' | awk  --field-separator=":" '{print $1;}' | awk  --field-separator="'" '{print $2;}' >> logfile.csv 
+dirac-wms-job-parameters $1 |awk -e '$1 ~ /Wall/ {print $0}' | awk  --field-separator=":" '{print $1;}' | awk  --field-separator="'" '{print $2;}'  >> logfile.csv
+dirac-wms-job-parameters $1 |awk -e '$1 ~ /Memory/ {print $0}' | awk  --field-separator=":" '{print $1;}' | awk  --field-separator="'" '{print $2;}' >> logfile.csv
+
+
+for arg in $*
+do
+  echo "Job #$index = $arg">> logfile.csv 
+ #dirac-wms-job-parameters $arg |awk -e '$1 ~ /\<MemoryUsed\>/ {print $0}' | awk  --field-separator=":" '{print $2;}' | awk  --field-separator="'" '{print $2;}' >> logfile.csv
+ # dirac-wms-job-parameters $arg |awk -e '$1 ~ /Memory\(kB\)/ {print $0}' | awk  --field-separator=":" '{print $2;}' | awk  --field-separator="'" '{print $2;}' >> logfile.csv  
+dirac-wms-job-parameters $arg |awk -e '$1 ~ /CPU/ {print $0}' | awk  --field-separator=":" '{print $2;}' | awk  --field-separator="'" '{print $2;}' >> logfile.csv 
+  dirac-wms-job-parameters $arg |awk -e '$1 ~ /Wall/ {print $0}' | awk  --field-separator=":" '{print $2;}' | awk  --field-separator="'" '{print $2;}' >> logfile.csv 
+ dirac-wms-job-parameters $arg |awk -e '$1 ~ /Memory/ {print $0}' | awk  --field-separator=":" '{print $2;}' | awk  --field-separator="'" '{print $2;}' >> logfile.csv
+  
+let "index+=1"
+done             
+
+#nrcol=$#+1
+#echo "      " $nrcol
+ pr -ts"," --columns $index  logfile.csv > paramslog.csv
+
+#sed '$!s/$/,/' logfile.txt >logfile.csv
+exit 0
