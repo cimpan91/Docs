@@ -18,7 +18,7 @@ Benchmarking and environment details:
 Rules IRIS imaging script
 -------------------------
 
--  we have the component to run it: eg. RASCIL container on CVMFS
+-  we have the component to run it: eg. RASCIL container on CVMFS (or under FC)
 
 -  the user provides script and data
 
@@ -26,7 +26,7 @@ Rules IRIS imaging script
 
    -  the .jdl model
 
-   -  the singularity container on CVMFS (always latest release) :
+   -  the singularity container on CVMFS, always latest release (or under FC) 
 
    -  environment has to be fully specified in container
 
@@ -35,7 +35,7 @@ Rules IRIS imaging script
 The .jdl model rules:
 ---------------------
 
--  the singularity container has to be on CVMFS (always latest release)
+-  the singularity container has to be on CVMFS, always latest release (or under FC) 
 
 -  scripts should be only input sandbox (not on InputData)
 
@@ -171,8 +171,7 @@ We use the benchmarking script: [1]_
 
    bash-4.2$ ./benchm 26381707 26381708 26381709
 
-The output is stored in paramslog.csv (see Figure `1 <#fig:param>`__),
-which can be opened on own workstation using Excel.
+The output is stored in paramslog.csv, which can be opened on own workstation using Excel.
 
 .. figure:: table.png
    :alt: Jobs parameters
@@ -183,8 +182,7 @@ which can be opened on own workstation using Excel.
 Efficiency is calculated as TotalCPUTime(s)/(WallClockTime(s)*Number of
 Processors) Mean and standard deviation can be calculated on efficiency
 and then error bars can be plotted against mean WallClockTime(s). Below
-is a plot for 10 jobs ran on processors 2 to 32 (see Figure
-`2 <#fig:meaneff>`__).
+is a plot for 10 jobs ran on processors 2 to 32.
 
 .. figure:: 1252meaneff.png
    :alt: TotalCPUTime(s)/(WallClockTime(s)*Number of Processors)
@@ -195,9 +193,7 @@ is a plot for 10 jobs ran on processors 2 to 32 (see Figure
 How .jdl model for efficiency use of nodes (modelm.jdl) works:
 --------------------------------------------------------------
 
-The model outputs files like "prmon.txt","prmon.json" where "prmon.txt"
-can be plotted using “prmon_plot.py” Example of plots are in Figure
-`3 <#fig:pr1252>`__:
+The model uses PRMON(PROcess MONitor) program [2]_ The output files are "prmon.txt","prmon.json" where "prmon.txt" can be plotted using “prmon_plot.py”. Example of plots are in figure below:
 
 .. figure:: pr1252.png
    :alt: TotalCPUTime(s)/(WallClockTime(s)*Number of Processors)
@@ -207,3 +203,6 @@ can be plotted using “prmon_plot.py” Example of plots are in Figure
    
 .. [1]
    https://github.com/cimpan91/Docs/blob/main/Docs/benchm
+   
+.. [2]
+   https://github.com/HSF/prmon/blob/main/README.md

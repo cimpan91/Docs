@@ -18,7 +18,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="ALMA RASCIL vs. ALMA CASA" href="ALMA.html" />
+    <link rel="next" title="Parameterized jobs - ALMA RASCIL vs. ALMA CASA tests" href="ALMA.html" />
     <link rel="prev" title="RASCIL Galahad and IRIS - CL and job submission" href="RASCIL.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -28,7 +28,7 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="ALMA.html" title="ALMA RASCIL vs. ALMA CASA"
+          <a href="ALMA.html" title="Parameterized jobs - ALMA RASCIL vs. ALMA CASA tests"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="RASCIL.html" title="RASCIL Galahad and IRIS - CL and job submission"
@@ -57,11 +57,11 @@ much memory do we need?</li>
 <div class="section" id="rules-iris-imaging-script">
 <h3>Rules IRIS imaging script<a class="headerlink" href="#rules-iris-imaging-script" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>we have the component to run it: eg. RASCIL container on CVMFS</li>
+<li>we have the component to run it: eg. RASCIL container on CVMFS (or under FC)</li>
 <li>the user provides script and data</li>
 <li>we provide:<ul>
 <li>the .jdl model</li>
-<li>the singularity container on CVMFS (always latest release) :</li>
+<li>the singularity container on CVMFS, always latest release (or under FC)</li>
 <li>environment has to be fully specified in container</li>
 <li>the container doesn’t need to be uploaded by the user</li>
 </ul>
@@ -71,7 +71,7 @@ much memory do we need?</li>
 <div class="section" id="the-jdl-model-rules">
 <h3>The .jdl model rules:<a class="headerlink" href="#the-jdl-model-rules" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>the singularity container has to be on CVMFS (always latest release)</li>
+<li>the singularity container has to be on CVMFS, always latest release (or under FC)</li>
 <li>scripts should be only input sandbox (not on InputData)</li>
 <li>large input/output datasets and data (including .tar .gz) should be
 on file catalogue only (LFN) - use InputData and OutputData
@@ -188,12 +188,11 @@ eMERLIN_testing_pipeline_1252+5634_cip_residual_moment0.fits
 eMERLIN_testing_pipeline_1252+5634_cip_restored_moment0.fits
 </pre></div>
 </div>
-<p>We use the benchmarking script: <a class="footnote-reference" href="#id2" id="id1">[1]</a></p>
+<p>We use the benchmarking script: <a class="footnote-reference" href="#id3" id="id1">[1]</a></p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>bash-4.2$ ./benchm 26381707 26381708 26381709
 </pre></div>
 </div>
-<p>The output is stored in paramslog.csv (see Figure <a class="reference external" href="#fig:param">1</a>),
-which can be opened on own workstation using Excel.</p>
+<p>The output is stored in paramslog.csv, which can be opened on own workstation using Excel.</p>
 <div class="figure" id="fig-param">
 <img alt="Jobs parameters" src="_images/table.png" />
 <p class="caption"><span class="caption-text">Jobs parameters</span></p>
@@ -201,8 +200,7 @@ which can be opened on own workstation using Excel.</p>
 <p>Efficiency is calculated as TotalCPUTime(s)/(WallClockTime(s)*Number of
 Processors) Mean and standard deviation can be calculated on efficiency
 and then error bars can be plotted against mean WallClockTime(s). Below
-is a plot for 10 jobs ran on processors 2 to 32 (see Figure
-<a class="reference external" href="#fig:meaneff">2</a>).</p>
+is a plot for 10 jobs ran on processors 2 to 32.</p>
 <div class="figure" id="fig-meaneff">
 <img alt="TotalCPUTime(s)/(WallClockTime(s)*Number of Processors)" src="_images/1252meaneff.png" />
 <p class="caption"><span class="caption-text">TotalCPUTime(s)/(WallClockTime(s)*Number of Processors)</span></p>
@@ -210,17 +208,21 @@ is a plot for 10 jobs ran on processors 2 to 32 (see Figure
 </div>
 <div class="section" id="how-jdl-model-for-efficiency-use-of-nodes-modelm-jdl-works">
 <h3>How .jdl model for efficiency use of nodes (modelm.jdl) works:<a class="headerlink" href="#how-jdl-model-for-efficiency-use-of-nodes-modelm-jdl-works" title="Permalink to this headline">¶</a></h3>
-<p>The model outputs files like “prmon.txt”,”prmon.json” where “prmon.txt”
-can be plotted using “prmon_plot.py” Example of plots are in Figure
-<a class="reference external" href="#fig:pr1252">3</a>:</p>
+<p>The model uses PRMON(PROcess MONitor) program <a class="footnote-reference" href="#id4" id="id2">[2]</a> The output files are “prmon.txt”,”prmon.json” where “prmon.txt” can be plotted using “prmon_plot.py”. Example of plots are in figure below:</p>
 <div class="figure" id="fig-pr1252">
 <img alt="TotalCPUTime(s)/(WallClockTime(s)*Number of Processors)" src="_images/pr1252.png" />
 <p class="caption"><span class="caption-text">TotalCPUTime(s)/(WallClockTime(s)*Number of Processors)</span></p>
 </div>
-<table class="docutils footnote" frame="void" id="id2" rules="none">
+<table class="docutils footnote" frame="void" id="id3" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><a class="reference external" href="https://github.com/cimpan91/Docs/blob/main/Docs/benchm">https://github.com/cimpan91/Docs/blob/main/Docs/benchm</a></td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td><a class="reference external" href="https://github.com/HSF/prmon/blob/main/README.md">https://github.com/HSF/prmon/blob/main/README.md</a></td></tr>
 </tbody>
 </table>
 </div>
@@ -255,7 +257,7 @@ can be plotted using “prmon_plot.py” Example of plots are in Figure
                         title="previous chapter">RASCIL Galahad and IRIS - CL and job submission</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="ALMA.html"
-                        title="next chapter">ALMA RASCIL vs. ALMA CASA</a></p>
+                        title="next chapter">Parameterized jobs - ALMA RASCIL vs. ALMA CASA tests</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -286,7 +288,7 @@ can be plotted using “prmon_plot.py” Example of plots are in Figure
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="ALMA.html" title="ALMA RASCIL vs. ALMA CASA"
+          <a href="ALMA.html" title="Parameterized jobs - ALMA RASCIL vs. ALMA CASA tests"
              >next</a> |</li>
         <li class="right" >
           <a href="RASCIL.html" title="RASCIL Galahad and IRIS - CL and job submission"

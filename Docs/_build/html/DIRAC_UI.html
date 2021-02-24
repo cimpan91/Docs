@@ -55,7 +55,7 @@
 <li>put data on the file catalog</li>
 <li>submitting RASCIL job</li>
 <li>get output data RASCIL job</li>
-<li>useful links  <a class="footnote-reference" href="#id19" id="id1">[1]</a></li>
+<li>useful links  <a class="footnote-reference" href="#id16" id="id1">[1]</a></li>
 </ul>
 <p>Get A Grid Certificate</p>
 <ul class="simple">
@@ -69,24 +69,23 @@ you will need later on, so make sure you write everything down!</li>
 process.You may also be asked to supply a letter of recommendation
 explaining why you need to use the grid and with whom you will be
 working.</li>
-<li>Details at  <a class="footnote-reference" href="#id20" id="id2">[2]</a></li>
+<li>Details at  <a class="footnote-reference" href="#id17" id="id2">[2]</a></li>
 </ul>
 <p>Join a VO</p>
 <ul class="simple">
 <li>Your grid certificate identifies you to the grid as an individual
 user, but it’s not enough on its own to allow you to use grid
 resources; you also need to join a Virtual Organisation (VO).</li>
-<li>Note: I have made my request to skatelescope.eu - see  <a class="footnote-reference" href="#id21" id="id3">[3]</a></li>
-<li>use the below link to register  <a class="footnote-reference" href="#id22" id="id4">[4]</a></li>
+<li>Note: I have made my request to skatelescope.eu - see  <a class="footnote-reference" href="#id18" id="id3">[3]</a></li>
+<li>add the certificate to your browser and use the below link to register  <a class="footnote-reference" href="#id19" id="id4">[4]</a></li>
 </ul>
 <p>Add the Certificate to your Browser</p>
 <ul class="simple">
-<li>Now that you have the certificate and have joined to VO, you can add
-your certificate to your browser and access DIRAC in browser  <a class="footnote-reference" href="#id23" id="id5">[5]</a></li>
-<li>More details about DIRAC at Guide to DIRAC  <a class="footnote-reference" href="#id24" id="id6">[6]</a></li>
+<li>Now that you have the certificate and have joined to VO, you can  access DIRAC in browser  <a class="footnote-reference" href="#id20" id="id5">[5]</a></li>
+<li>More details about DIRAC at Guide to DIRAC  <a class="footnote-reference" href="#id21" id="id6">[6]</a></li>
 </ul>
 <p>The Certificate in your Browser</p>
-<div class="figure" id="id30">
+<div class="figure" id="id26">
 <img alt="DIRAC" src="_images/DIRAC.png" />
 <p class="caption"><span class="caption-text">DIRAC</span></p>
 </div>
@@ -106,7 +105,7 @@ your certificate to your browser and access DIRAC in browser  <a class="footnote
 </div>
 <div class="section" id="dirac-install">
 <h2>DIRAC install<a class="headerlink" href="#dirac-install" title="Permalink to this headline">¶</a></h2>
-<p><strong>Details at:</strong>  <a class="footnote-reference" href="#id25" id="id7">[7]</a></p>
+<p><strong>Details at:</strong>  <a class="footnote-reference" href="#id23" id="id7">[9]</a></p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;your-user&gt;@&lt;your-server&gt; /raid/scratch/&lt;your-user&gt; &gt; mkdir dirac_ui
 &lt;your-user&gt;@&lt;your-server&gt; /raid/scratch/&lt;your-user&gt; &gt; cd dirac_ui/
 &lt;your-user&gt;@&lt;your-server&gt; /raid/scratch/&lt;your-user&gt;/dirac_ui &gt;
@@ -116,7 +115,7 @@ mkdir $HOME/.globus
 certBundle.p12
 </pre></div>
 </div>
-<p id="dirac-install-1"><strong>Details at:</strong>  <a class="footnote-reference" href="#id26" id="id8">[8]</a></p>
+<p id="dirac-install-1"><strong>Details at:</strong>  <a class="footnote-reference" href="#id22" id="id8">[8]</a></p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;your-user&gt;@&lt;your-server&gt; /raid/scratch/&lt;your-user&gt;/dirac_ui &gt;
 openssl pkcs12 -in certBundle.p12 -clcerts -nokeys -out
 $HOME/.globus/usercert.pem
@@ -133,7 +132,7 @@ Verifying - Enter PEM pass phrase:
 chmod 0400 $HOME/.globus/userkey.pem
 </pre></div>
 </div>
-<p id="dirac-install-2"><strong>Details at:</strong>  <a class="footnote-reference" href="#id27" id="id9">[9]</a></p>
+<p id="dirac-install-2"><strong>Details at:</strong>  <a class="footnote-reference" href="#id23" id="id9">[9]</a></p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">user</span><span class="o">&gt;@&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">server</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">raid</span><span class="o">/</span><span class="n">scratch</span><span class="o">/&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">user</span><span class="o">&gt;/</span><span class="n">dirac_ui</span> <span class="o">&gt;</span>
 <span class="n">wget</span> <span class="o">-</span><span class="n">np</span> <span class="o">-</span><span class="n">O</span> <span class="n">dirac</span><span class="o">-</span><span class="n">install</span>
 <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">DIRACGrid</span><span class="o">/</span><span class="n">DIRAC</span><span class="o">/</span><span class="n">integration</span><span class="o">/</span><span class="n">Core</span><span class="o">/</span><span class="n">sc</span>
@@ -144,7 +143,7 @@ chmod 0400 $HOME/.globus/userkey.pem
 <span class="o">./</span><span class="n">dirac</span><span class="o">-</span><span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">v6r22p6</span> <span class="o">-</span><span class="n">i</span> <span class="mi">27</span> <span class="o">-</span><span class="n">g</span> <span class="n">v14r1</span>
 </pre></div>
 </div>
-<p id="dirac-install-3"><strong>Details at:</strong>  <a class="footnote-reference" href="#id27" id="id10">[9]</a></p>
+<p id="dirac-install-3"><strong>Details at:</strong>  <a class="footnote-reference" href="#id23" id="id10">[9]</a></p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="o">&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">user</span><span class="o">&gt;@&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">server</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">raid</span><span class="o">/</span><span class="n">scratch</span><span class="o">/&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">user</span><span class="o">&gt;/</span><span class="n">dirac_ui</span> <span class="o">&gt;</span> <span class="n">source</span>
   <span class="n">cshrc</span>
   <span class="o">&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">user</span><span class="o">&gt;@&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">server</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">raid</span><span class="o">/</span><span class="n">scratch</span><span class="o">/&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">user</span><span class="o">&gt;/</span><span class="n">dirac_ui</span> <span class="o">&gt;</span>
@@ -166,7 +165,7 @@ chmod 0400 $HOME/.globus/userkey.pem
 </pre></div>
 </div>
 <hr class="docutils" />
-<p><strong>Details at:</strong>  <a class="footnote-reference" href="#id28" id="id11">[11]</a></p>
+<p><strong>Details at:</strong>  <a class="footnote-reference" href="#id24" id="id11">[11]</a></p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="o">&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">user</span><span class="o">&gt;@&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">server</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">raid</span><span class="o">/</span><span class="n">scratch</span><span class="o">/&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">user</span><span class="o">&gt;/</span><span class="n">dirac_ui</span> <span class="o">&gt;</span> <span class="n">cat</span>
   <span class="n">simple</span><span class="o">.</span><span class="n">jdl</span>
   <span class="n">JobName</span> <span class="o">=</span> <span class="s2">&quot;InputAndOuputSandbox&quot;</span><span class="p">;</span>
@@ -181,11 +180,12 @@ chmod 0400 $HOME/.globus/userkey.pem
   <span class="c1">#!/bin/bash</span>
   <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python</span> <span class="o">--</span><span class="n">version</span><span class="p">;</span>
 
+
 <span class="n">Monitor</span> <span class="n">a</span> <span class="n">simple</span> <span class="n">job</span>
 </pre></div>
 </div>
 <hr class="docutils" />
-<p><strong>Details at:</strong>  <a class="footnote-reference" href="#id28" id="id12">[11]</a></p>
+<p><strong>Details at:</strong>  <a class="footnote-reference" href="#id24" id="id12">[11]</a></p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">user</span><span class="o">&gt;@&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">server</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">raid</span><span class="o">/</span><span class="n">scratch</span><span class="o">/&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">user</span><span class="o">&gt;/</span><span class="n">dirac_ui</span> <span class="o">&gt;</span>
 <span class="n">dirac</span><span class="o">-</span><span class="n">wms</span><span class="o">-</span><span class="n">job</span><span class="o">-</span><span class="n">submit</span> <span class="n">simple</span><span class="o">.</span><span class="n">jdl</span>
 <span class="n">JobID</span> <span class="o">=</span> <span class="mi">25104301</span>
@@ -197,14 +197,14 @@ chmod 0400 $HOME/.globus/userkey.pem
 </pre></div>
 </div>
 <ul class="simple">
-<li>The job execution can be seen also on <a href="#id13"><span class="problematic" id="id14">`</span></a>DIRAC</li>
+<li>The job execution can be seen also on DIRAC Web-link</li>
 </ul>
-<p>Web-link &lt;<a class="reference external" href="https://dirac.gridpp.ac.uk:8443/DIRAC/">https://dirac.gridpp.ac.uk:8443/DIRAC/</a>&gt;`__ (see
-Applications/Job Monitor -&gt; Owner (your name) -&gt; submit)</p>
+<p>&lt;<a class="reference external" href="https://dirac.gridpp.ac.uk:8443/DIRAC/">https://dirac.gridpp.ac.uk:8443/DIRAC/</a>&gt;_
+(see Applications/Job Monitor -&gt; Owner (your name) -&gt; submit)</p>
 </div>
 <div class="section" id="put-rascil-img-in-a-file-catalog">
 <h2>Put RASCIL.img in a file catalog<a class="headerlink" href="#put-rascil-img-in-a-file-catalog" title="Permalink to this headline">¶</a></h2>
-<p><strong>Details at:</strong>  <a class="footnote-reference" href="#id29" id="id15">[13]</a></p>
+<p><strong>Details at:</strong>  <a class="footnote-reference" href="#id25" id="id13">[13]</a></p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">user</span><span class="o">&gt;@&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">server</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">raid</span><span class="o">/</span><span class="n">scratch</span><span class="o">/&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">user</span><span class="o">&gt;/</span><span class="n">dirac_ui</span> <span class="o">&gt;</span>
 <span class="n">dirac</span><span class="o">-</span><span class="n">dms</span><span class="o">-</span><span class="n">add</span><span class="o">-</span><span class="n">file</span> <span class="n">LFN</span><span class="p">:</span><span class="o">/</span><span class="n">skatelescope</span><span class="o">.</span><span class="n">eu</span><span class="o">/</span><span class="n">user</span><span class="o">/&lt;</span><span class="n">first</span> <span class="n">letter</span> <span class="n">of</span> <span class="n">your</span>
 <span class="n">user</span><span class="o">&gt;/&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">user</span><span class="o">&gt;/</span><span class="n">rascil</span><span class="o">/</span><span class="n">RASCIL</span><span class="o">.</span><span class="n">img</span> <span class="n">RASCIL</span><span class="o">.</span><span class="n">img</span> <span class="n">UKI</span><span class="o">-</span><span class="n">NORTHGRID</span><span class="o">-</span>
@@ -219,7 +219,6 @@ Applications/Job Monitor -&gt; Owner (your name) -&gt; submit)</p>
 </div>
 <div class="section" id="submitting-rascil-job">
 <h2>Submitting RASCIL job<a class="headerlink" href="#submitting-rascil-job" title="Permalink to this headline">¶</a></h2>
-<p><strong>Details at:</strong>  <a class="footnote-reference" href="#id28" id="id16">[11]</a></p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>cat simpleR1.jdl
 JobName    = &quot;InputAndOuputSandbox&quot;;
 Executable = &quot;testR1.sh&quot;;
@@ -242,7 +241,7 @@ RASCIL-full1.img python3 /rascil/examples/scripts/imaging.py;
 </div>
 <div class="section" id="managing-rascil-job">
 <h2>Managing RASCIL job<a class="headerlink" href="#managing-rascil-job" title="Permalink to this headline">¶</a></h2>
-<p><strong>Details at:</strong>  <a class="footnote-reference" href="#id28" id="id17">[11]</a></p>
+<p><strong>Details at:</strong>  <a class="footnote-reference" href="#id24" id="id14">[11]</a></p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>$ dirac-wms-job-submit simpleR1.jdl
 JobID = 25260750
 
@@ -258,7 +257,7 @@ Site=LCG.UKI-NORTHGRID-MAN-HEP.uk;
 </div>
 <div class="section" id="get-output-data-rascil-job">
 <h2>Get Output Data RASCIL job<a class="headerlink" href="#get-output-data-rascil-job" title="Permalink to this headline">¶</a></h2>
-<p><strong>Details at:</strong>  <a class="footnote-reference" href="#id28" id="id18">[11]</a></p>
+<p><strong>Details at:</strong>  <a class="footnote-reference" href="#id24" id="id15">[11]</a></p>
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>Note: the RASCIL job has 3 image outputs, so we specify them in
 OutputSandbox and we take the data locally using command
 
@@ -289,7 +288,7 @@ $ cat StdOut   #or StdErr
 <li>Getting started Command Line:
 <a class="reference external" href="https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/UserJobs/CommandLine/index.html">link</a></li>
 </ul>
-<table class="docutils footnote" frame="void" id="id19" rules="none">
+<table class="docutils footnote" frame="void" id="id16" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td>What is IRIS: <a class="reference external" href="https://www.iris.ac.uk/about-iris/">https://www.iris.ac.uk/about-iris/</a> Rich details GridPP:
@@ -297,72 +296,65 @@ $ cat StdOut   #or StdErr
 <a class="reference external" href="https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/index.html">https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/index.html</a></td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id20" rules="none">
+<table class="docutils footnote" frame="void" id="id17" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id2">[2]</a></td><td>grid certificate:
 <a class="reference external" href="http://hep.ph.liv.ac.uk/~sjones/user-guides/getting-on-the-grid/grid-certificate.html">http://hep.ph.liv.ac.uk/~sjones/user-guides/getting-on-the-grid/grid-certificate.html</a></td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id21" rules="none">
+<table class="docutils footnote" frame="void" id="id18" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id3">[3]</a></td><td>Approved Global VOs:
 <a class="reference external" href="https://www.gridpp.ac.uk/wiki/GridPP_approved_VOs">https://www.gridpp.ac.uk/wiki/GridPP_approved_VOs</a></td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id22" rules="none">
+<table class="docutils footnote" frame="void" id="id19" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id4">[4]</a></td><td>register for a VO:
 <a class="reference external" href="https://voms.gridpp.ac.uk:8443/voms/skatelescope.eu/user/home.action">https://voms.gridpp.ac.uk:8443/voms/skatelescope.eu/user/home.action</a></td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id23" rules="none">
+<table class="docutils footnote" frame="void" id="id20" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id5">[5]</a></td><td>DIRAC in browser: <a class="reference external" href="https://dirac.gridpp.ac.uk:8443/DIRAC/">https://dirac.gridpp.ac.uk:8443/DIRAC/</a></td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id24" rules="none">
+<table class="docutils footnote" frame="void" id="id21" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id6">[6]</a></td><td>Guide to DIRAC:
 <a class="reference external" href="https://www.gridpp.ac.uk/wiki/Quick_Guide_to_Dirac#Server_URL">https://www.gridpp.ac.uk/wiki/Quick_Guide_to_Dirac#Server_URL</a></td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id25" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id7">[7]</a></td><td>Install Dirac:
-<a class="reference external" href="https://github.com/as595/SKA-IRIS/blob/master/DIRACUI/InstallDirac.sh">https://github.com/as595/SKA-IRIS/blob/master/DIRACUI/InstallDirac.sh</a></td></tr>
-</tbody>
-</table>
-<table class="docutils footnote" frame="void" id="id26" rules="none">
+<table class="docutils footnote" frame="void" id="id22" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
 <tr><td class="label"><a class="fn-backref" href="#id8">[8]</a></td><td>runMeForCertAndKey:
 <a class="reference external" href="https://github.com/as595/SKA-IRIS/blob/master/DIRACUI/runMeForCertAndKey">https://github.com/as595/SKA-IRIS/blob/master/DIRACUI/runMeForCertAndKey</a></td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id27" rules="none">
+<table class="docutils footnote" frame="void" id="id23" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[9]</td><td><em>(<a class="fn-backref" href="#id9">1</a>, <a class="fn-backref" href="#id10">2</a>)</em> Install Dirac:
+<tr><td class="label">[9]</td><td><em>(<a class="fn-backref" href="#id7">1</a>, <a class="fn-backref" href="#id9">2</a>, <a class="fn-backref" href="#id10">3</a>)</em> Install Dirac:
 <a class="reference external" href="https://github.com/as595/SKA-IRIS/blob/master/DIRACUI/InstallDirac.sh">https://github.com/as595/SKA-IRIS/blob/master/DIRACUI/InstallDirac.sh</a></td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id28" rules="none">
+<table class="docutils footnote" frame="void" id="id24" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[11]</td><td><em>(<a class="fn-backref" href="#id11">1</a>, <a class="fn-backref" href="#id12">2</a>, <a class="fn-backref" href="#id16">3</a>, <a class="fn-backref" href="#id17">4</a>, <a class="fn-backref" href="#id18">5</a>)</em> Simple Job:
+<tr><td class="label">[11]</td><td><em>(<a class="fn-backref" href="#id11">1</a>, <a class="fn-backref" href="#id12">2</a>, <a class="fn-backref" href="#id14">3</a>, <a class="fn-backref" href="#id15">4</a>)</em> Simple Job:
 <a class="reference external" href="https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/UserJobs/CommandLine/index.html">https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/UserJobs/CommandLine/index.html</a></td></tr>
 </tbody>
 </table>
-<table class="docutils footnote" frame="void" id="id29" rules="none">
+<table class="docutils footnote" frame="void" id="id25" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id15">[13]</a></td><td>File Catalog:
+<tr><td class="label"><a class="fn-backref" href="#id13">[13]</a></td><td>File Catalog:
 <a class="reference external" href="https://dirac.readthedocs.io/en/latest/UserGuide/CommandReference/DataManagement/index.html">https://dirac.readthedocs.io/en/latest/UserGuide/CommandReference/DataManagement/index.html</a></td></tr>
 </tbody>
 </table>

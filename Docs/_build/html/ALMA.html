@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>ALMA RASCIL vs. ALMA CASA &#8212; eMerlin v0.0.3 documentation</title>
+    <title>Parameterized jobs - ALMA RASCIL vs. ALMA CASA tests &#8212; eMerlin v0.0.3 documentation</title>
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
@@ -38,14 +38,19 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="alma-rascil-vs-alma-casa">
-<h1>ALMA RASCIL vs. ALMA CASA<a class="headerlink" href="#alma-rascil-vs-alma-casa" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="parameterized-jobs-alma-rascil-vs-alma-casa-tests">
+<h1>Parameterized jobs - ALMA RASCIL vs. ALMA CASA tests<a class="headerlink" href="#parameterized-jobs-alma-rascil-vs-alma-casa-tests" title="Permalink to this headline">¶</a></h1>
 <p>This documentation offers CASA vs. RASCIL scripts on ALMA datasets, for results comparison:</p>
 <ul class="simple">
 <li><a class="footnote-reference" href="#id5" id="id1">[1]</a> ALMA RASCIL</li>
 <li><a class="footnote-reference" href="#id6" id="id2">[2]</a> ALMA CASA</li>
 </ul>
-<p>Three ALMA datasets are already uploaded under LFN, these are: HLTau_Band6, HLTau_Band7 and Mira_Band6.</p>
+<p>Three ALMA datasets are already uploaded under LFN, these are: HLTau_Band6, HLTau_Band7 and Mira_Band6. ALMA datasets are stored under LFN as: %s_CalibratedData.tgz, where %s is the name of the parameter:</p>
+<div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;HLTau_Band6&quot;</span><span class="p">,</span><span class="s2">&quot;HLTau_Band7&quot;</span><span class="p">,</span><span class="s2">&quot;Mira_Band6&quot;</span><span class="p">};</span>
+
+<span class="n">see</span> <span class="n">the</span> <span class="n">parameters</span> <span class="ow">in</span> <span class="n">the</span> <span class="o">.</span><span class="n">jdl</span>
+</pre></div>
+</div>
 <div class="section" id="alma-rascil">
 <h2>ALMA RASCIL<a class="headerlink" href="#alma-rascil" title="Permalink to this headline">¶</a></h2>
 <ul>
@@ -56,6 +61,46 @@
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>$ dirac-wms-job-submit alma_rascil.jdl
 </pre></div>
 </div>
+<dl class="docutils">
+<dt>More parameters can be added to the Parameters={“HLTau_Band6”,,,,} list above, along with the ALMA datasets and their own configuration files. See example config files in configfiles.tar.gz. The steps, to add another dataset to be processed, are:</dt>
+<dd><ul class="first last simple">
+<li>download ALMA dataset and store it under LFN with the name %s_CalibratedData.tgz (%s being one of the parameters, eg. HLTau_Band6)</li>
+<li>create a configuration file for this dataset and add it to the configfiles.tar.gz</li>
+<li>add the new parameter to the list of parameters in the .jdl file, Parameters = {“HLTau_Band6”,”HLTau_Band7”,”Mira_Band6”};</li>
+</ul>
+</dd>
+</dl>
+<p>ALMA RASCIL tests are using a RASCIL container build from a recipe to enable the usage of config files. An example of recipe file that can be used is:</p>
+<blockquote>
+<div><div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>recipe file that uses an already pulled local RASCIL container: RASCIL-fullN.img
+
+$ cat SingRascilCasa.recipe
+bootstrap: localimage
+from: /home/&lt;user&gt;/RASCIL-fullN.img
+%post
+    cd /var/lib
+    git clone https://github.com/casacore/casacore
+    apt-get update &amp;&amp; \
+       apt-get -y install sudo
+    sudo apt-get -y install build-essential cmake gfortran g++ libncurses5-dev \
+            libreadline-dev flex bison libblas-dev liblapacke-dev libcfitsio-dev \
+            wcslib-dev libfftw3-dev
+    sudo apt-get -y install libhdf5-serial-dev python-numpy \
+             libboost-python-dev libpython3.7-dev  libpython2.7-dev
+    cd casacore
+    mkdir build
+    cd build
+    cmake ..
+    make
+    make install
+
+
+ building the new container from recipe uses the command:
+
+ $ sudo singularity build  RASCIL-full.img SingRascilCasa.recipe
+</pre></div>
+</div>
+</div></blockquote>
 </div>
 <div class="section" id="alma-casa">
 <h2>ALMA CASA<a class="headerlink" href="#alma-casa" title="Permalink to this headline">¶</a></h2>
@@ -67,6 +112,7 @@
 <div class="code python highlight-default notranslate"><div class="highlight"><pre><span></span>$ dirac-wms-job-submit alma_casa.jdl
 </pre></div>
 </div>
+<p>ALMA CASA scripts have been downloaded and only their name has been changed (because of use of parametrized jobs). Also these scripts are using the ALMA datasets %s_CalibratedData.tgz mentioned above.</p>
 <table class="docutils footnote" frame="void" id="id5" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
@@ -102,7 +148,7 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">ALMA RASCIL vs. ALMA CASA</a><ul>
+<li><a class="reference internal" href="#">Parameterized jobs - ALMA RASCIL vs. ALMA CASA tests</a><ul>
 <li><a class="reference internal" href="#alma-rascil">ALMA RASCIL</a></li>
 <li><a class="reference internal" href="#alma-casa">ALMA CASA</a></li>
 </ul>

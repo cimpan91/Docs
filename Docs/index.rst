@@ -8,7 +8,7 @@ Welcome to eMerlin's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents(under construction):
+   :caption: Contents (under construction):
 
    DIRAC_UI
    RASCIL

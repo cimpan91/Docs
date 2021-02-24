@@ -49,12 +49,11 @@ Join a VO
 
 -  Note: I have made my request to skatelescope.eu - see  [3]_
 
--  use the below link to register  [4]_
+-  add the certificate to your browser and use the below link to register  [4]_
 
 Add the Certificate to your Browser
 
--  Now that you have the certificate and have joined to VO, you can add
-   your certificate to your browser and access DIRAC in browser  [5]_
+-  Now that you have the certificate and have joined to VO, you can  access DIRAC in browser  [5]_
 
 -  More details about DIRAC at Guide to DIRAC  [6]_
 
@@ -84,7 +83,7 @@ Overview of directories on your server
 DIRAC install
 ==============
 
-**Details at:**  [7]_
+**Details at:**  [9]_
 
 .. code:: python
 
@@ -159,7 +158,7 @@ DIRAC install
 
 
  Submit a simple job
-===================
+====================
 
 **Details at:**  [11]_
 
@@ -179,8 +178,9 @@ DIRAC install
    #!/bin/bash
    /usr/bin/python --version;
 
+
  Monitor a simple job
-====================
+=====================
 
 **Details at:**  [11]_
 
@@ -195,12 +195,12 @@ DIRAC install
    JobID=25104301 Status=Done; MinorStatus=Execution Complete;
    Site=LCG.UKI-NORTHGRID-MAN-HEP.uk;
 
-- The job execution can be seen also on `DIRAC
-Web-link <https://dirac.gridpp.ac.uk:8443/DIRAC/>`__ (see
-Applications/Job Monitor -> Owner (your name) -> submit)
+- The job execution can be seen also on DIRAC Web-link 
+<https://dirac.gridpp.ac.uk:8443/DIRAC/>_ 
+(see Applications/Job Monitor -> Owner (your name) -> submit)
 
 Put RASCIL.img in a file catalog
-=================================
+================================
 
 **Details at:**  [13]_
 
@@ -218,8 +218,6 @@ Put RASCIL.img in a file catalog
 
 Submitting RASCIL job
 =====================
-
-**Details at:**  [11]_
 
 .. code:: python
 
@@ -325,10 +323,6 @@ Useful Links
 .. [6]
    Guide to DIRAC:
    https://www.gridpp.ac.uk/wiki/Quick_Guide_to_Dirac#Server_URL
-
-.. [7]
-   Install Dirac:
-   https://github.com/as595/SKA-IRIS/blob/master/DIRACUI/InstallDirac.sh
 
 .. [8]
    runMeForCertAndKey:
