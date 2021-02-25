@@ -195,8 +195,7 @@ DIRAC install
    JobID=25104301 Status=Done; MinorStatus=Execution Complete;
    Site=LCG.UKI-NORTHGRID-MAN-HEP.uk;
 
-- The job execution can be seen also on DIRAC Web-link 
-<https://dirac.gridpp.ac.uk:8443/DIRAC/>_ 
+- The job execution can be seen also on DIRAC `Web-link <https://dirac.gridpp.ac.uk:8443/DIRAC/>`__
 (see Applications/Job Monitor -> Owner (your name) -> submit)
 
 Put RASCIL.img in a file catalog
