@@ -201,7 +201,7 @@ DIRAC install
 Put RASCIL.img in a file catalog
 ================================
 
-**Details at:**  `File_Catalog <https://dirac.readthedocs.io/en/latest/UserGuide/CommandReference/DataManagement/index.>`__
+**Details at:**  `File_Catalog <https://dirac.readthedocs.io/en/latest/UserGuide/HowTo/DataManagement/index.html>`__
 
 .. code:: python
 
