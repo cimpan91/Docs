@@ -53,7 +53,7 @@ Join a VO
 
 Access DIRAC in browser
 
--  Now that you have the certificate and have joined to VO, you can  access DIRAC in browser   `DIRAC_in_browser: <https://dirac.gridpp.ac.uk:8443/DIRAC/>`__
+-  Now that you have the certificate and have joined to VO, you can  access DIRAC in browser   `DIRAC_in_browser <https://dirac.gridpp.ac.uk:8443/DIRAC/>`__
 
 -  More details about DIRAC at Guide to DIRAC  `Guide_to_DIRAC <https://www.gridpp.ac.uk/wiki/Quick_Guide_to_Dirac#Server_URL>`__
 
@@ -293,10 +293,7 @@ Useful Links
 
 -   `Getting_started_Command_Line <https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/UserJobs/CommandLine/index.html>`__
 
-.. [1]
-   What is IRIS: https://www.iris.ac.uk/about-iris/ Rich details GridPP:
-   https://github.com/GridPP/user-guides Getting Started:
-   https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/index.html
+
 
 
 :Author: Iulia Cimpan
