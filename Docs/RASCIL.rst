@@ -23,8 +23,7 @@ RASCIL on Galahad and IRIS (CL):
 
 -  Running on existing docker images
 
-   The RASCIL Dockerfiles are in a separate repository at
-   https://gitlab.com/ska-telescope/rascil-docker.
+   The `RASCIL_Dockerfiles  <https://gitlab.com/ska-telescope/rascil-docker>`__ are in a separate repository.
 
    The docker images for RASCIL are on nexus.engageska-portugal.pt at:
 
