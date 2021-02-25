@@ -277,7 +277,7 @@ Get Output Data RASCIL job
 
 Useful Links
 
--  What is IRIS: `link <https://www.iris.ac.uk/about-iris/>`__
+-   `What_is_IRIS: <https://www.iris.ac.uk/about-iris/>`__
 
 -  Rich details GridPP user-guide at:
    `link <https://github.com/GridPP/user-guides>`__
