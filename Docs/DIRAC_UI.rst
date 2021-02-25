@@ -278,7 +278,7 @@ Useful Links
 
 -   `What_is_IRIS <https://www.iris.ac.uk/about-iris/>`__
 
--   `GridPP_user-guide_at <https://github.com/GridPP/user-guides>`__
+-   `GridPP_user-guide <https://github.com/GridPP/user-guides>`__
 
 -   `Getting_on_the_grid <https://github.com/gridpp/user-guides/tree/master/getting-on-the-grid>`__
 
