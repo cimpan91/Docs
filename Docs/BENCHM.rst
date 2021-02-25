@@ -193,7 +193,7 @@ is a plot for 10 jobs ran on processors 2 to 32.
 How .jdl model for efficiency use of nodes (modelm.jdl) works:
 --------------------------------------------------------------
 
-The model uses `PRMON  <https://github.com/HSF/prmon/blob/main/README.md>`__ (PROcess MONitor) program. The output files are "prmon.txt","prmon.json" where "prmon.txt" can be plotted using “prmon_plot.py”. Example of plots are in figure below:
+The model uses `PRMON  <https://github.com/HSF/prmon/blob/main/README.md>`__ (PRocess MONitor) program. The output files are "prmon.txt","prmon.json" where "prmon.txt" can be plotted using “prmon_plot.py”. Example of plots are in figure below:
 
 .. figure:: pr1252.png
    :alt: TotalCPUTime(s)/(WallClockTime(s)*Number of Processors)
