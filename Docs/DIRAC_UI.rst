@@ -8,7 +8,7 @@ Introduction
 
 -  join VO (Virtual Organisation)
 
--  add the certificate to your browser
+-  access DIRAC in browser
 
 -  install DIRAC UI
 
@@ -51,7 +51,7 @@ Join a VO
 
 -  add the certificate to your browser and use the below link to register  [4]_
 
-Add the Certificate to your Browser
+Access DIRAC in browser
 
 -  Now that you have the certificate and have joined to VO, you can  access DIRAC in browser  [5]_
 
