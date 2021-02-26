@@ -8,7 +8,7 @@ Introduction
 
 -  join VO (Virtual Organisation)
 
--  add the certificate to your browser
+-  access DIRAC in browser
 
 -  install DIRAC UI
 
@@ -22,7 +22,7 @@ Introduction
 
 -  get output data RASCIL job
 
--  useful links  [1]_
+-  useful links  
 
 Get A Grid Certificate
 
@@ -39,7 +39,7 @@ Get A Grid Certificate
    explaining why you need to use the grid and with whom you will be
    working.
 
--  Details at  [2]_
+-  Details at    `grid_certificate <http://hep.ph.liv.ac.uk/~sjones/user-guides/getting-on-the-grid/grid-certificate.html>`__
 
 Join a VO
 
@@ -47,15 +47,15 @@ Join a VO
    user, but it’s not enough on its own to allow you to use grid
    resources; you also need to join a Virtual Organisation (VO).
 
--  Note: I have made my request to skatelescope.eu - see  [3]_
+-  Note: I have made my request to skatelescope.eu - see   `Approved_Global_VOs <https://www.gridpp.ac.uk/wiki/GridPP_approved_VOs>`__
 
--  add the certificate to your browser and use the below link to register  [4]_
+-  add the certificate to your browser and use the below link to register  `register_for_a_VO <https://voms.gridpp.ac.uk:8443/voms/skatelescope.eu/user/home.action>`__
 
-Add the Certificate to your Browser
+Access DIRAC in browser
 
--  Now that you have the certificate and have joined to VO, you can  access DIRAC in browser  [5]_
+-  Now that you have the certificate and have joined to VO, you can  access DIRAC in browser   `DIRAC_in_browser <https://dirac.gridpp.ac.uk:8443/DIRAC/>`__
 
--  More details about DIRAC at Guide to DIRAC  [6]_
+-  More details about DIRAC at Guide to DIRAC  `Guide_to_DIRAC <https://www.gridpp.ac.uk/wiki/Quick_Guide_to_Dirac#Server_URL>`__
 
 The Certificate in your Browser
 
@@ -83,7 +83,7 @@ Overview of directories on your server
 DIRAC install
 ==============
 
-**Details at:**  [9]_
+**Details at:**   `Install_Dirac <https://github.com/as595/SKA-IRIS/blob/master/DIRACUI/InstallDirac.sh>`__
 
 .. code:: python
 
@@ -98,7 +98,7 @@ DIRAC install
 .. _dirac-install-1:
 
 
-**Details at:**  [8]_
+**Details at:**   `runMeForCertAndKey <https://github.com/as595/SKA-IRIS/blob/master/DIRACUI/runMeForCertAndKey>`__
 
 .. code:: python
 
@@ -121,7 +121,7 @@ DIRAC install
 
 
 
-**Details at:**  [9]_
+**Details at:**   `Install_Dirac <https://github.com/as595/SKA-IRIS/blob/master/DIRACUI/InstallDirac.sh>`__
 
 .. code:: python
 
@@ -136,7 +136,7 @@ DIRAC install
 
 .. _dirac-install-3:
 
-**Details at:**  [9]_
+**Details at:**   `Install_Dirac <https://github.com/as595/SKA-IRIS/blob/master/DIRACUI/InstallDirac.sh>`__
 
 .. code:: python
 
@@ -160,7 +160,7 @@ DIRAC install
  Submit a simple job
 ====================
 
-**Details at:**  [11]_
+**Details at:**  `Simple_Job <https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/UserJobs/CommandLine/index.html>`__
 
 .. code:: python
 
@@ -182,7 +182,7 @@ DIRAC install
  Monitor a simple job
 =====================
 
-**Details at:**  [11]_
+**Details at:**  `Simple_Job <https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/UserJobs/CommandLine/index.html>`__
 
 .. code:: python
 
@@ -195,14 +195,13 @@ DIRAC install
    JobID=25104301 Status=Done; MinorStatus=Execution Complete;
    Site=LCG.UKI-NORTHGRID-MAN-HEP.uk;
 
-- The job execution can be seen also on DIRAC Web-link 
-<https://dirac.gridpp.ac.uk:8443/DIRAC/>_ 
+- The job execution can be seen also on DIRAC `Web-link <https://dirac.gridpp.ac.uk:8443/DIRAC/>`__
 (see Applications/Job Monitor -> Owner (your name) -> submit)
 
 Put RASCIL.img in a file catalog
 ================================
 
-**Details at:**  [13]_
+**Details at:**  `File_Catalog <https://dirac.readthedocs.io/en/latest/UserGuide/CommandReference/DataManagement/index.html>`__
 
 .. code:: python
 
@@ -242,7 +241,7 @@ Submitting RASCIL job
 Managing RASCIL job
 ===================
 
-**Details at:**  [11]_
+**Details at:**  `Simple_Job <https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/UserJobs/CommandLine/index.html>`__
 
 .. code:: python
 
@@ -260,7 +259,7 @@ Managing RASCIL job
 Get Output Data RASCIL job
 ==========================
 
-**Details at:**  [11]_
+**Details at:**  `Simple_Job <https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/UserJobs/CommandLine/index.html>`__
 
 .. code:: python
 
@@ -277,69 +276,24 @@ Get Output Data RASCIL job
 
 Useful Links
 
--  What is IRIS: `link <https://www.iris.ac.uk/about-iris/>`__
+-   `What_is_IRIS <https://www.iris.ac.uk/about-iris/>`__
 
--  Rich details GridPP user-guide at:
-   `link <https://github.com/GridPP/user-guides>`__
+-   `GridPP_user-guide <https://github.com/GridPP/user-guides>`__
 
--  Getting on the grid:
-   `link <https://github.com/gridpp/user-guides/tree/master/getting-on-the-grid>`__
+-   `Getting_on_the_grid <https://github.com/gridpp/user-guides/tree/master/getting-on-the-grid>`__
 
--  Useful command DIRAC UI install:
-   `link <https://github.com/as595/SKA-IRIS/tree/master/DIRACUI>`__
+-   `Useful_command_DIRAC_UI_install  <https://github.com/as595/SKA-IRIS/tree/master/DIRACUI>`__
 
--  Getting started:
-   `link <https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/index.html>`__
+-   `Getting_started <https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/index.html>`__
 
--  Getting started User Jobs:
-   `link <https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/UserJobs/index.html>`__
+-   `Getting_started_User_Jobs <https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/UserJobs/index.html>`__
 
--  Getting started Data Management:
-   `link <https://dirac.readthedocs.io/en/latest/UserGuide/CommandReference/DataManagement/index.html>`__
+-   `Getting_started_Data_Management <https://dirac.readthedocs.io/en/latest/UserGuide/CommandReference/DataManagement/index.html>`__
 
--  Getting started Command Line:
-   `link <https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/UserJobs/CommandLine/index.html>`__
+-   `Getting_started_Command_Line <https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/UserJobs/CommandLine/index.html>`__
 
-.. [1]
-   What is IRIS: https://www.iris.ac.uk/about-iris/ Rich details GridPP:
-   https://github.com/GridPP/user-guides Getting Started:
-   https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/index.html
 
-.. [2]
-   grid certificate:
-   http://hep.ph.liv.ac.uk/~sjones/user-guides/getting-on-the-grid/grid-certificate.html
 
-.. [3]
-   Approved Global VOs:
-   https://www.gridpp.ac.uk/wiki/GridPP_approved_VOs
-
-.. [4]
-   register for a VO:
-   https://voms.gridpp.ac.uk:8443/voms/skatelescope.eu/user/home.action
-
-.. [5]
-   DIRAC in browser: https://dirac.gridpp.ac.uk:8443/DIRAC/
-
-.. [6]
-   Guide to DIRAC:
-   https://www.gridpp.ac.uk/wiki/Quick_Guide_to_Dirac#Server_URL
-
-.. [8]
-   runMeForCertAndKey:
-   https://github.com/as595/SKA-IRIS/blob/master/DIRACUI/runMeForCertAndKey
-
-.. [9]
-   Install Dirac:
-   https://github.com/as595/SKA-IRIS/blob/master/DIRACUI/InstallDirac.sh
-
-.. [11]
-   Simple Job:
-   https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/UserJobs/CommandLine/index.html
-
-.. [13]
-   File Catalog:
-   https://dirac.readthedocs.io/en/latest/UserGuide/CommandReference/DataManagement/index.html
-   
 
 :Author: Iulia Cimpan
-:Date:   7 Sept 2020
+:Date:   25 Feb 2021

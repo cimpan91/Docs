@@ -4,11 +4,11 @@ RASCIL Galahad and IRIS - CL and job submission
 
 This documentation follows the steps of the links below:
 
--   [1]_ RASCIL_docker
+-   `RASCIL_docker  <https://ska-telescope.gitlab.io/external/rascil/RASCIL_install.html#installation-via-docker>`__
 
--   [2]_ RASCIL_singularity
+-   `RASCIL_singularity <https://ska-telescope.gitlab.io/external/rascil/installation/RASCIL_docker.html#singularity>`__
 
--   [3]_ RASCIL_gitlab
+-   `RASCIL_gitlab  <https://gitlab.com/ska-telescope/rascil>`__
 
 RASCIL on Galahad and IRIS (CL):
 ================================
@@ -23,8 +23,7 @@ RASCIL on Galahad and IRIS (CL):
 
 -  Running on existing docker images
 
-   The RASCIL Dockerfiles are in a separate repository at
-   https://gitlab.com/ska-telescope/rascil-docker.
+   The `RASCIL_Dockerfiles  <https://gitlab.com/ska-telescope/rascil-docker>`__ are in a separate repository.
 
    The docker images for RASCIL are on nexus.engageska-portugal.pt at:
 
@@ -349,11 +348,4 @@ your job and then it would be for example http://compute-0-5:8787
 
    [<your-user>@galahad ~]$ squeue
 
-.. [1]
-   https://ska-telescope.gitlab.io/external/rascil/RASCIL_install.html#installation-via-docker
 
-.. [2]
-   https://ska-telescope.gitlab.io/external/rascil/installation/RASCIL_docker.html#singularity
-
-.. [3]
-   https://gitlab.com/ska-telescope/rascil

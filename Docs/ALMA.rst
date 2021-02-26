@@ -4,9 +4,9 @@ Parameterized jobs - ALMA RASCIL vs. ALMA CASA tests
 
 This documentation offers CASA vs. RASCIL scripts on ALMA datasets, for results comparison:
 
--   [1]_ ALMA RASCIL
+-   `ALMA_RASCIL <https://ska-telescope.gitlab.io/external/rascil/installation/RASCIL_docker.html#singularity>`__
 
--   [2]_ ALMA CASA
+-   `ALMA_CASA <https://casaguides.nrao.edu/index.php/ALMA2014_LBC_SVDATA>`__
 
 Three ALMA datasets are already uploaded under LFN, these are: HLTau_Band6, HLTau_Band7 and Mira_Band6. ALMA datasets are stored under LFN as: %s_CalibratedData.tgz, where %s is the name of the parameter: 
 
@@ -23,7 +23,7 @@ ALMA RASCIL
 
 -  Scripts:
 
-   Folder alma_rascil with all scripts [3]_ Download files and submit to IRIS three jobs, by using the below command:
+   Folder `alma_rascil <https://github.com/cimpan91/AlmaTests/tree/main/alma_rascil>`__ contains all scripts. Download files and submit to IRIS three jobs, by using the below command:
  
 .. code:: python
 
@@ -76,7 +76,7 @@ ALMA CASA
 
 -  Scripts:
 
-   Folder alma_casa with all scripts [4]_ Download files and submit to IRIS three jobs, by using the below command:
+   Folder `alma_casa <https://github.com/cimpan91/AlmaTests/tree/main/alma_casa>`__ contains all scripts. Download files and submit to IRIS three jobs, by using the below command:
    
 .. code:: python
 
@@ -84,17 +84,5 @@ ALMA CASA
    $ dirac-wms-job-submit alma_casa.jdl 
 
    
-ALMA CASA scripts have been downloaded and only their name has been changed (because of use of parametrized jobs). Also these scripts are using the ALMA datasets %s_CalibratedData.tgz mentioned above.
-   
-   
-.. [1]
-   https://ska-telescope.gitlab.io/external/rascil/installation/RASCIL_docker.html#singularity
+ALMA CASA scripts have been downloaded and their name has been changed to %s_Imaging.py, where %s is the name of the parameter (because of use of parametrized jobs). The files will be then archived into imgfiles.tar. These scripts are using the ALMA datasets %s_CalibratedData.tgz mentioned above.
 
-.. [2]
-   https://casaguides.nrao.edu/index.php/ALMA2014_LBC_SVDATA
-   
-.. [3]
-   https://github.com/cimpan91/Docs/tree/main/Docs/alma_rascil
-   
-.. [4]
-   https://github.com/cimpan91/Docs/tree/main/Docs/alma_casa
