@@ -23,7 +23,7 @@ ALMA RASCIL
 
 -  Scripts:
 
-   Folder `alma_rascil <https://github.com/cimpan91/Docs/tree/main/Docs/alma_rascil>`__ contains all scripts. Download files and submit to IRIS three jobs, by using the below command:
+   Folder `alma_rascil <https://github.com/cimpan91/AlmaTests/tree/main/alma_rascil>`__ contains all scripts. Download files and submit to IRIS three jobs, by using the below command:
  
 .. code:: python
 
@@ -76,7 +76,7 @@ ALMA CASA
 
 -  Scripts:
 
-   Folder `alma_casa <https://github.com/cimpan91/Docs/tree/main/Docs/alma_casa>`__ contains all scripts. Download files and submit to IRIS three jobs, by using the below command:
+   Folder `alma_casa <https://github.com/cimpan91/AlmaTests/tree/main/alma_casa>`__ contains all scripts. Download files and submit to IRIS three jobs, by using the below command:
    
 .. code:: python
 
