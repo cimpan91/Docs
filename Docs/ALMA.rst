@@ -84,5 +84,5 @@ ALMA CASA
    $ dirac-wms-job-submit alma_casa.jdl 
 
    
-ALMA CASA scripts have been downloaded and only their name has been changed to %s_Imaging.py, where %s is the name of the parameter (because of use of parametrized jobs). Also these scripts are using the ALMA datasets %s_CalibratedData.tgz mentioned above.
+ALMA CASA scripts have been downloaded and their name has been changed to %s_Imaging.py, where %s is the name of the parameter (because of use of parametrized jobs). The files will be then archived into imgfiles.tar. These scripts are using the ALMA datasets %s_CalibratedData.tgz mentioned above.
 
