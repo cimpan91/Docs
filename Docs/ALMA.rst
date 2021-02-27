@@ -86,3 +86,15 @@ ALMA CASA
    
 ALMA CASA scripts have been downloaded and their name has been changed to %s_Imaging.py, where %s is the name of the parameter (because of use of parametrized jobs). The files will be then archived into imgfiles.tar. These scripts are using the ALMA datasets %s_CalibratedData.tgz mentioned above.
 
+
+
+RESULTS HLTau_Band6 DATASET
+============================
+
+These are the results for HLTau_Band6 DATASET `ALMA_RASCIL <https://github.com/cimpan91/AlmaTests/tree/main/results%20HLTAU6%20rascil>`__  and `ALMA_CASA <https://github.com/cimpan91/AlmaTests/tree/main/results%20HLTAU6%20casa>`__ 
+Two fits images (RASCIL vs CASA outputs) converted to png are being shown below:
+
+- RASCIL output `png <https://github.com/cimpan91/AlmaTests/blob/main/ical_restored_image_for_HL_Tau.png>`__  (conversion of output image ical_restored_image_for_HL_Tau.fits)
+
+- CASA output `png <https://github.com/cimpan91/AlmaTests/blob/main/HLTau_B6cont_mscale_ap.image.png>`__  (conversion of output image HLTau_B6cont_mscale_ap.image.fits)
+
