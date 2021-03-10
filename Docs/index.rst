@@ -15,10 +15,3 @@ Welcome to eMerlin's documentation!
    BENCHM
    ALMA
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
