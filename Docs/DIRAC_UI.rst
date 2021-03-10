@@ -28,7 +28,7 @@ Get A Grid Certificate
 
 -  a grid certificate is a .p12 file
 
--  Using your browser of choice visit this page and select the Request
+-  Using your browser of choice visit `this page <https://www.learnitlive.com/Class/Healing-with-Life%3A-A-Channeling-with-Grace/16820>`_ and select the Request
    New User Certificate option. This almost goes without saying, but
    make sure you supply a valid email address which you can access. You
    will also be asked to do things like supply a PIN and passwords that
