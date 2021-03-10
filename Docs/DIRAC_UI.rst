@@ -89,8 +89,7 @@ DIRAC install
 
    <your-user>@<your-server> /raid/scratch/<your-user> > mkdir dirac_ui
    <your-user>@<your-server> /raid/scratch/<your-user> > cd dirac_ui/
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui >
-   mkdir $HOME/.globus
+   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > mkdir $HOME/.globus
    <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui >ls
    certBundle.p12
    #make sure you have the cert in this folder dirac_ui, eg certBundle.p12
@@ -102,20 +101,15 @@ DIRAC install
 
 .. code:: python
 
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > 
-   openssl pkcs12 -in certBundle.p12 -clcerts -nokeys -out 
-   $HOME/.globus/usercert.pem
+   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > openssl pkcs12 -in certBundle.p12 -clcerts -nokeys -out $HOME/.globus/usercert.pem
    Enter Import Password:
    MAC verified OK
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > 
-   openssl pkcs12 -in certBundle.p12 -nocerts -out 
-   $HOME/.globus/userkey.pem
+   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > openssl pkcs12 -in certBundle.p12 -nocerts -out $HOME/.globus/userkey.pem
    Enter Import Password:
    MAC verified OK
    Enter PEM pass phrase:
    Verifying - Enter PEM pass phrase:
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > 
-   chmod 0400 $HOME/.globus/userkey.pem
+   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > chmod 0400 $HOME/.globus/userkey.pem
 
 .. _dirac-install-2:
 
@@ -125,14 +119,10 @@ DIRAC install
 
 .. code:: python
 
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > 
-   wget -np -O dirac-install
-   https://raw.githubusercontent.com/DIRACGrid/DIRAC/integration/Core/sc
+   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > wget -np -O dirac-install https://raw.githubusercontent.com/DIRACGrid/DIRAC/integration/Core/sc
    ripts/dirac-install.py
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > 
-   chmod u+x dirac-install
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > 
-   ./dirac-install -r v6r22p6 -i 27 -g v14r1
+   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > chmod u+x dirac-install
+   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > ./dirac-install -r v6r22p6 -i 27 -g v14r1
 
 .. _dirac-install-3:
 
@@ -140,18 +130,12 @@ DIRAC install
 
 .. code:: python
 
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > source 
-   cshrc
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > 
-   dirac-proxy-init -x
+   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > source cshrc
+   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > dirac-proxy-init -x
    Generating proxy...
    Enter Certificate password:
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > 
-   dirac-configure -F -S GridPP -C
-   dips://dirac01.grid.hep.ph.ic.ac.uk:9135/Configuration/Server -I
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > 
-   dirac-proxy-init
-   -g skatelescope.eu_user -M 
+   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > dirac-configure -F -S GridPP -C dips://dirac01.grid.hep.ph.ic.ac.uk:9135/Configuration/Server -I
+   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > dirac-proxy-init -g skatelescope.eu_user -M 
    #skatelescope.eu it is the VO I am assigned to
    Generating proxy...
    Enter Certificate password:
