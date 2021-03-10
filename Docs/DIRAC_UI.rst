@@ -92,8 +92,8 @@ DIRAC install
    <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui >
    mkdir $HOME/.globus
    <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui >ls
+   certBundle.p12
    #make sure you have the cert in this folder dirac_ui, eg certBundle.p12
-   certBundle.p12 
 
 .. _dirac-install-1:
 
