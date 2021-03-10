@@ -141,15 +141,15 @@ DIRAC install
    Enter Certificate password:
 
 
- Submit a simple job
+
+Submit a simple job
 ====================
 
 **Details at:**  `Simple_Job <https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/UserJobs/CommandLine/index.html>`__
 
 .. code:: python
 
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > cat
-   simple.jdl
+   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > cat simple.jdl
    JobName = "InputAndOuputSandbox";
    Executable = "pythonV.sh";
    StdOutput = "StdOut";
@@ -157,25 +157,22 @@ DIRAC install
    InputSandbox = {"pythonV.sh"};
    OutputSandbox = {"StdOut","StdErr"};
 
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > 
-   cat pythonV.sh
+   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > cat pythonV.sh
    #!/bin/bash
    /usr/bin/python --version;
 
 
- Monitor a simple job
+Monitor a simple job
 =====================
 
 **Details at:**  `Simple_Job <https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/UserJobs/CommandLine/index.html>`__
 
 .. code:: python
 
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > 
-   dirac-wms-job-submit simple.jdl
+   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > dirac-wms-job-submit simple.jdl
    JobID = 25104301
 
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > 
-   dirac-wms-job-status 25104301
+   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > dirac-wms-job-status 25104301
    JobID=25104301 Status=Done; MinorStatus=Execution Complete;
    Site=LCG.UKI-NORTHGRID-MAN-HEP.uk;
 
@@ -189,15 +186,11 @@ Put RASCIL.img in a file catalog
 
 .. code:: python
 
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > 
-   dirac-dms-add-file LFN:/skatelescope.eu/user/<first letter of your
-   user>/<your-user>/rascil/RASCIL.img RASCIL.img UKI-NORTHGRID-
-   MAN-HEP-disk
+   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > dirac-dms-add-file LFN:/skatelescope.eu/user/<first letter of your user>/<your-user>/rascil/RASCIL.img RASCIL.img UKI-NORTHGRID-MAN-HEP-disk
    # UKI-NORTHGRID-MAN-HEP-disk - SE: DIRAC Storage Element
 
    Then you will find the file RASCIL.img under: 
-   FC:/skatelescope.eu/user/<first letter of your
-   user>/<your-user>/rascil/RASCIL.img
+   FC:/skatelescope.eu/user/<first letter of your user>/<your-user>/rascil/RASCIL.img
 
 Submitting RASCIL job
 =====================
