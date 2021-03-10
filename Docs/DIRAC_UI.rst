@@ -57,12 +57,12 @@ Access DIRAC in browser
 
 -  More details about DIRAC at Guide to DIRAC  `Guide_to_DIRAC <https://www.gridpp.ac.uk/wiki/Quick_Guide_to_Dirac#Server_URL>`__
 
-The Certificate in your Browser
+DIRAC in Browser
 
 .. figure:: DIRAC.png
    :alt: DIRAC
 
-   DIRAC
+   
 
 Before DIRAC install
 ====================
