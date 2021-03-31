@@ -119,8 +119,8 @@ DIRAC install
 
 .. code:: python
 
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > wget -np -O dirac-install https://raw.githubusercontent.com/DIRACGrid/DIRAC/integration/Core/sc
-   ripts/dirac-install.py
+   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > wget -np -O dirac-install https://raw.githubusercontent.com/DIRACGrid/management/master/dirac-install.py
+
    <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > chmod u+x dirac-install
    <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > ./dirac-install -r v6r22p6 -i 27 -g v14r1
 
@@ -273,4 +273,4 @@ Useful Links
 
 
 :Author: Iulia Cimpan
-:Date:   25 Feb 2021
+:Date:   31 March 2021
