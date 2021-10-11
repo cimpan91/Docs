@@ -83,7 +83,7 @@ Overview of directories on your server
 DIRAC install
 ==============
 
-**Details at:**   `Install_Dirac <https://github.com/as595/SKA-IRIS/blob/master/DIRACUI/InstallDirac.sh>`__
+**Step 1:**  
 
 .. code:: python
 
@@ -94,10 +94,9 @@ DIRAC install
    certBundle.p12
    #make sure you have the cert in this folder dirac_ui, eg certBundle.p12
 
-.. _dirac-install-1:
 
 
-**Details at:**   `runMeForCertAndKey <https://github.com/as595/SKA-IRIS/blob/master/DIRACUI/runMeForCertAndKey>`__
+**Step 2:**  
 
 .. code:: python
 
@@ -111,11 +110,9 @@ DIRAC install
    Verifying - Enter PEM pass phrase:
    <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > chmod 0400 $HOME/.globus/userkey.pem
 
-.. _dirac-install-2:
 
 
-
-**Details at:**   `Install_Dirac <https://github.com/as595/SKA-IRIS/blob/master/DIRACUI/InstallDirac.sh>`__
+**Step 3:**  
 
 .. code:: python
 
@@ -124,9 +121,8 @@ DIRAC install
    <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > chmod u+x dirac-install
    <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > ./dirac-install -r v6r22p6 -i 27 -g v14r1
 
-.. _dirac-install-3:
 
-**Details at:**   `Install_Dirac <https://github.com/as595/SKA-IRIS/blob/master/DIRACUI/InstallDirac.sh>`__
+**Step 4:**  
 
 .. code:: python
 
@@ -259,8 +255,6 @@ Useful Links
 
 -   `Getting_on_the_grid <https://github.com/gridpp/user-guides/tree/master/getting-on-the-grid>`__
 
--   `Useful_command_DIRAC_UI_install  <https://github.com/as595/SKA-IRIS/tree/master/DIRACUI>`__
-
 -   `Getting_started <https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/index.html>`__
 
 -   `Getting_started_User_Jobs <https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/UserJobs/index.html>`__
@@ -273,4 +267,4 @@ Useful Links
 
 
 :Author: Iulia Cimpan
-:Date:   31 March 2021
+:Date:   Oct 2021
