@@ -249,7 +249,7 @@ Get Output Data RASCIL job
 
 Useful Links
 
--   `What_is_IRIS <https://www.iris.ac.uk/about-iris/>`__
+-   `What_is_IRIS <https://www.iris.co.uk/about-iris/>`__
 
 -   `GridPP_user-guide <https://github.com/GridPP/user-guides>`__
 
