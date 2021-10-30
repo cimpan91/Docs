@@ -4,6 +4,8 @@ DIRAC install and basic usage
 
 Introduction
 
+-  IRIS resources
+
 -  get a grid certificate
 
 -  join VO (Virtual Organisation)
@@ -23,6 +25,14 @@ Introduction
 -  get output data RASCIL job
 
 -  useful links  
+
+
+
+
+IRIS resources `What_is_IRIS <https://www.iris.co.uk/about-iris/>`__
+
+.. figure:: iris manchines.png
+   :alt: IRIS resources
 
 Get A Grid Certificate
 
