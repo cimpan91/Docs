@@ -116,22 +116,25 @@ DIRAC install
 
 .. code:: python
 
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > wget -np -O dirac-install https://raw.githubusercontent.com/DIRACGrid/management/master/dirac-install.py
+   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > wget -np -O dirac-install https://raw.githubusercontent.com/DIRACGrid/management/master/dirac-install.py --no-check-certificate
 
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > chmod u+x dirac-install
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > ./dirac-install -r v6r22p6 -i 27 -g v14r1
+ <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > chmod u+x dirac-install
+ <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > ./dirac-install -r v7r1p45
+
 
 
 **Step 4:**  
 
 .. code:: python
 
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > source cshrc
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > dirac-proxy-init -x
+   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > source bashrc
+   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > dirac-proxy-init -x -N
    Generating proxy...
    Enter Certificate password:
+   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > export X509_VOMS_DIR="$DIRAC/etc/grid-security/vomsdir"
+   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > export X509_VOMSES="$DIRAC/etc/grid-security/vomses"
    <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > dirac-configure -F -S GridPP -C dips://dirac01.grid.hep.ph.ic.ac.uk:9135/Configuration/Server -I
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > dirac-proxy-init -g skatelescope.eu_user -M 
+   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > dirac-proxy-init -g skatelescope.eu_user -M -U 
    #skatelescope.eu it is the VO I am assigned to
    Generating proxy...
    Enter Certificate password:
@@ -255,7 +258,9 @@ Useful Links
 
 -   `Getting_on_the_grid <https://github.com/gridpp/user-guides/tree/master/getting-on-the-grid>`__
 
--   `Getting_started <https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/index.html>`__
+-   `Grid_user_crash_course <https://www.gridpp.ac.uk/wiki/Grid_user_crash_course>`__
+
+-   `Quick_Guide_to_Dirac <https://www.gridpp.ac.uk/wiki/Quick_Guide_to_Dirac>`__
 
 -   `Getting_started_User_Jobs <https://dirac.readthedocs.io/en/latest/UserGuide/GettingStarted/UserJobs/index.html>`__
 
