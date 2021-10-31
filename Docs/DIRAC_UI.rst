@@ -132,7 +132,7 @@ DIRAC install
 
 .. code:: python
 
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > wget -np -O dirac-install https://raw.githubusercontent.com/DIRACGrid/management/master/dirac-install.py --no-check-certificate
+  <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > wget -np -O dirac-install https://raw.githubusercontent.com/DIRACGrid/management/master/dirac-install.py --no-check-certificate
 
   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > chmod u+x dirac-install
   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > ./dirac-install -r v7r1p45
