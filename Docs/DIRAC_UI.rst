@@ -98,7 +98,7 @@ DIRAC install
 .. code:: python
     
    - Switch to bash eg
-   bash-4.2$cat .bash_profile 
+   bash-4.2$ cat .bash_profile 
      #switch to bash
    setenv SHELL /usr/bin/bash
    exec /usr/bin/bash --login 
