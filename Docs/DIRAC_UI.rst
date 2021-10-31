@@ -96,11 +96,17 @@ DIRAC install
 **Step 1:**  
 
 .. code:: python
-
-   <your-user>@<your-server> /raid/scratch/<your-user> > mkdir dirac_ui
-   <your-user>@<your-server> /raid/scratch/<your-user> > cd dirac_ui/
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > mkdir $HOME/.globus
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui >ls
+    
+   - Switch to bash eg
+   bash-4.2$cat .bash_profile 
+     #switch to bash
+   setenv SHELL /usr/bin/bash
+   exec /usr/bin/bash --login 
+   
+   bash-4.2$ /raid/scratch/<your-user> > mkdir dirac_ui
+   bash-4.2$ /raid/scratch/<your-user> > cd dirac_ui/
+   bash-4.2$ /raid/scratch/<your-user>/dirac_ui > mkdir $HOME/.globus
+   bash-4.2$ /raid/scratch/<your-user>/dirac_ui >ls
    certBundle.p12
    #make sure you have the cert in this folder dirac_ui, eg certBundle.p12
 
@@ -128,8 +134,8 @@ DIRAC install
 
    <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > wget -np -O dirac-install https://raw.githubusercontent.com/DIRACGrid/management/master/dirac-install.py --no-check-certificate
 
- <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > chmod u+x dirac-install
- <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > ./dirac-install -r v7r1p45
+  <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > chmod u+x dirac-install
+  <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > ./dirac-install -r v7r1p45
 
 
 
@@ -194,7 +200,22 @@ Put RASCIL.img in a file catalog
 **Details at:**  `File_Catalog <https://dirac.readthedocs.io/en/latest/UserGuide/CommandReference/DataManagement/index.html>`__
 
 .. code:: python
-
+   
+   - Accessing File Catalog to add a testFile or a singularity container
+   bash-4.2$ dirac-dms-filecatalog-cli
+   Starting FileCatalog client
+   FC:/> cd /skatelescope.eu/user
+   
+   - Go to the first letter of your user 
+   FC:/skatelescope.eu/user>cd c
+   
+   - Create (mkdir) or go to your user folder
+   FC:/skatelescope.eu/user/c>cd cimpan
+   
+   - Exit File Catalog
+   FC:/skatelescope.eu/user/c/cimpan>exit
+   bash-4.2$ 
+   
    <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > dirac-dms-add-file LFN:/skatelescope.eu/user/<first letter of your user>/<your-user>/rascil/RASCIL.img RASCIL.img UKI-NORTHGRID-MAN-HEP-disk
    # UKI-NORTHGRID-MAN-HEP-disk - SE: DIRAC Storage Element
 
