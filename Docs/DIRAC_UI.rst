@@ -29,7 +29,7 @@ Introduction
 
 
 
-IRIS resources `What_is_IRIS <https://www.iris.co.uk/about-iris/>`__
+IRIS resources `What_is_IRIS <https://www.iris.ac.uk/>`__
 
 Get A Grid Certificate
 
@@ -279,7 +279,7 @@ Get Output Data RASCIL job
 
 Useful Links
 
--   `What_is_IRIS <https://www.iris.co.uk/about-iris/>`__
+-   `What_is_IRIS <https://www.iris.ac.uk/>`__
 
 -   `GridPP_user-guide <https://github.com/GridPP/user-guides>`__
 
