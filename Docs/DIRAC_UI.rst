@@ -31,9 +31,6 @@ Introduction
 
 IRIS resources `What_is_IRIS <https://www.iris.co.uk/about-iris/>`__
 
-.. figure:: iris manchines.png
-   :alt: IRIS resources
-
 Get A Grid Certificate
 
 -  a grid certificate is a .p12 file
