@@ -116,15 +116,15 @@ DIRAC install
 
 .. code:: python
 
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > openssl pkcs12 -in certBundle.p12 -clcerts -nokeys -out $HOME/.globus/usercert.pem
+   bash-4.2$ /raid/scratch/<your-user>/dirac_ui > openssl pkcs12 -in certBundle.p12 -clcerts -nokeys -out $HOME/.globus/usercert.pem
    Enter Import Password:
    MAC verified OK
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > openssl pkcs12 -in certBundle.p12 -nocerts -out $HOME/.globus/userkey.pem
+   bash-4.2$ /raid/scratch/<your-user>/dirac_ui > openssl pkcs12 -in certBundle.p12 -nocerts -out $HOME/.globus/userkey.pem
    Enter Import Password:
    MAC verified OK
    Enter PEM pass phrase:
    Verifying - Enter PEM pass phrase:
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > chmod 0400 $HOME/.globus/userkey.pem
+   bash-4.2$ /raid/scratch/<your-user>/dirac_ui > chmod 0400 $HOME/.globus/userkey.pem
 
 
 
@@ -132,10 +132,9 @@ DIRAC install
 
 .. code:: python
 
-  <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > wget -np -O dirac-install https://raw.githubusercontent.com/DIRACGrid/management/master/dirac-install.py --no-check-certificate
-
-  <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > chmod u+x dirac-install
-  <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > ./dirac-install -r v7r1p45
+  bash-4.2$ /raid/scratch/<your-user>/dirac_ui > wget -np -O dirac-install https://raw.githubusercontent.com/DIRACGrid/management/master/dirac-install.py --no-check-certificate
+  bash-4.2$ /raid/scratch/<your-user>/dirac_ui > chmod u+x dirac-install
+  bash-4.2$ /raid/scratch/<your-user>/dirac_ui > ./dirac-install -r v7r1p45
 
 
 
@@ -143,14 +142,14 @@ DIRAC install
 
 .. code:: python
 
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > source bashrc
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > dirac-proxy-init -x -N
+   bash-4.2$ /raid/scratch/<your-user>/dirac_ui > source bashrc
+   bash-4.2$ /raid/scratch/<your-user>/dirac_ui > dirac-proxy-init -x -N
    Generating proxy...
    Enter Certificate password:
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > export X509_VOMS_DIR="$DIRAC/etc/grid-security/vomsdir"
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > export X509_VOMSES="$DIRAC/etc/grid-security/vomses"
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > dirac-configure -F -S GridPP -C dips://dirac01.grid.hep.ph.ic.ac.uk:9135/Configuration/Server -I
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > dirac-proxy-init -g skatelescope.eu_user -M -U 
+   bash-4.2$ /raid/scratch/<your-user>/dirac_ui > export X509_VOMS_DIR="$DIRAC/etc/grid-security/vomsdir"
+   bash-4.2$ /raid/scratch/<your-user>/dirac_ui > export X509_VOMSES="$DIRAC/etc/grid-security/vomses"
+   bash-4.2$ /raid/scratch/<your-user>/dirac_ui > dirac-configure -F -S GridPP -C dips://dirac01.grid.hep.ph.ic.ac.uk:9135/Configuration/Server -I
+   bash-4.2$ /raid/scratch/<your-user>/dirac_ui > dirac-proxy-init -g skatelescope.eu_user -M -U 
    #skatelescope.eu it is the VO I am assigned to
    Generating proxy...
    Enter Certificate password:
@@ -164,7 +163,7 @@ Submit a simple job
 
 .. code:: python
 
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > cat simple.jdl
+   bash-4.2$ /raid/scratch/<your-user>/dirac_ui > cat simple.jdl
    JobName = "InputAndOuputSandbox";
    Executable = "pythonV.sh";
    StdOutput = "StdOut";
@@ -172,7 +171,7 @@ Submit a simple job
    InputSandbox = {"pythonV.sh"};
    OutputSandbox = {"StdOut","StdErr"};
 
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > cat pythonV.sh
+   bash-4.2$ /raid/scratch/<your-user>/dirac_ui > cat pythonV.sh
    #!/bin/bash
    /usr/bin/python --version;
 
@@ -184,10 +183,10 @@ Monitor a simple job
 
 .. code:: python
 
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > dirac-wms-job-submit simple.jdl
+   bash-4.2$ /raid/scratch/<your-user>/dirac_ui > dirac-wms-job-submit simple.jdl
    JobID = 25104301
 
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > dirac-wms-job-status 25104301
+   bash-4.2$ /raid/scratch/<your-user>/dirac_ui > dirac-wms-job-status 25104301
    JobID=25104301 Status=Done; MinorStatus=Execution Complete;
    Site=LCG.UKI-NORTHGRID-MAN-HEP.uk;
 
@@ -216,7 +215,7 @@ Put RASCIL.img in a file catalog
    FC:/skatelescope.eu/user/c/cimpan>exit
    bash-4.2$ 
    
-   <your-user>@<your-server> /raid/scratch/<your-user>/dirac_ui > dirac-dms-add-file LFN:/skatelescope.eu/user/<first letter of your user>/<your-user>/rascil/RASCIL.img RASCIL.img UKI-NORTHGRID-MAN-HEP-disk
+   bash-4.2$ /raid/scratch/<your-user>/dirac_ui > dirac-dms-add-file LFN:/skatelescope.eu/user/<first letter of your user>/<your-user>/rascil/RASCIL.img RASCIL.img UKI-NORTHGRID-MAN-HEP-disk
    # UKI-NORTHGRID-MAN-HEP-disk - SE: DIRAC Storage Element
 
    Then you will find the file RASCIL.img under: 
