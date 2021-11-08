@@ -60,7 +60,7 @@ Join a VO
 
 Access DIRAC in browser
 
--  Now that you have the certificate and have joined to VO, you can  access DIRAC in browser   `DIRAC_in_browser <https://dirac.gridpp.ac.uk:8443/DIRAC/>`__
+-  Now that you have the certificate and have joined to VO, you can add certificate to your browser and access DIRAC in browser   `DIRAC_in_browser <https://dirac.gridpp.ac.uk:8443/DIRAC/>`__
 
 -  More details about DIRAC at Guide to DIRAC  `Guide_to_DIRAC <https://www.gridpp.ac.uk/wiki/Quick_Guide_to_Dirac#Server_URL>`__
 
