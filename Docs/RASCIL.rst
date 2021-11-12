@@ -87,7 +87,7 @@ The Juptyer server will start and output possible URLs to use:
 
 - Images of RASCIL applications
 
-**DOCKER
+** DOCKER
 
 - Pull the image:
 
@@ -106,16 +106,18 @@ The Juptyer server will start and output possible URLs to use:
 
 
 
-**SINGULARITY
+** SINGULARITY
 
 - Pull the image:
 
 .. code:: python
+
    singularity pull rascil-imaging-qa.img docker://artefact.skao.int/rascil-imaging-qa:latest
 
 - Run the image:
 
 .. code:: python
+
    singularity run \
     --env CLI_ARGS='--ingest_fitsname_restored test-imaging-pipeline-dask_continuum_imaging_restored.fits \
         --ingest_fitsname_residual test-imaging-pipeline-dask_continuum_imaging_residual.fits' \
