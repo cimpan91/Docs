@@ -25,16 +25,103 @@ RASCIL on Galahad and IRIS (CL):
 
    The `RASCIL_Dockerfiles  <https://gitlab.com/ska-telescope/rascil-docker>`__ are in a separate repository.
 
-   The docker images for RASCIL are on nexus.engageska-portugal.pt at:
+   The docker images for RASCIL are at:
 
    .. code:: python
 
-      nexus.engageska-portugal.pt/rascil-docker/rascil-base
-      nexus.engageska-portugal.pt/rascil-docker/rascil-full
+      artefact.skao.int/rascil-base
+      artefact.skao.int/rascil-full
 
-   The first does not have the RASCIL test data but is smaller in size
-   (2GB vs 4GB). However, for many of the tests and demonstrations the
-   test data is needed.
+   rascil-base does not have the RASCIL test data but is smaller in size. However, for many of the tests and demonstrations the test data is needed, which are       included in rascil-full.
+
+- Run RASCIL with your home directory available inside the image:
+
+ .. code:: python
+ 
+   docker run -it --volume $HOME:$HOME artefact.skao.int/rascil-full
+   
+- Run an example script 
+ 
+ To run the /rascil/examples/scripts/imaging.py script, we first change directory to the name of the HOME directory, which is the same inside and outside the container, and then give the full address of the script inside the container.   
+
+ .. code:: python
+   
+   docker run -p 8888:8888 -v $HOME:$HOME -it artefact.skao.int/rascil-full
+   rascil@d0c5fc9fc19d:/rascil$ cd /<your home directory>
+   rascil@d0c5fc9fc19d:/<your home directory>$ python3 /rascil/examples/scripts/imaging.py
+   ...
+   rascil@d0c5fc9fc19d:/<your home directory>$ ls -l imaging*.fits
+   -rw-r--r-- 1 rascil rascil 2102400 Feb 11 14:04 imaging_dirty.fits
+   -rw-r--r-- 1 rascil rascil 2102400 Feb 11 14:04 imaging_psf.fits
+   -rw-r--r-- 1 rascil rascil 2102400 Feb 11 14:04 imaging_restored.fits
+
+- RASCIL Notebooks
+
+The docker image to use with RASCIL Jupyter Notebooks is:
+
+ .. code:: python
+ 
+   artefact.skao.int/rascil-notebook
+   
+   
+Run Jupyter Notebooks inside the container:
+ 
+ .. code:: python
+
+   docker run -it -p 8888:8888 --volume $HOME:$HOME artefact.skao.int/rascil-full
+   cd /<your home directory>
+   jupyter notebook --no-browser --ip 0.0.0.0  /rascil/examples/notebooks/
+
+
+The Juptyer server will start and output possible URLs to use:
+
+ .. code:: python
+ 
+   [I 14:08:39.041 NotebookApp] Serving notebooks from local directory: /rascil/examples/notebooks
+   [I 14:08:39.041 NotebookApp] The Jupyter Notebook is running at:
+   [I 14:08:39.042 NotebookApp] http://d0c5fc9fc19d:8888/?token=f050f82ed0f8224e559c2bdd29d4ed0d65a116346bcb5653
+   [I 14:08:39.042 NotebookApp]  or http://127.0.0.1:8888/?token=f050f82ed0f8224e559c2bdd29d4ed0d65a116346bcb5653
+   [I 14:08:39.042 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+   [W 14:08:39.045 NotebookApp] No web browser found: could not locate runnable browser.
+
+
+- Images of RASCIL applications
+
+**DOCKER
+
+- Pull the image:
+
+.. code:: python
+   
+   docker pull artefact.skao.int/rascil-imaging-qa:latest
+
+- Run the image:
+
+.. code:: python
+
+   docker run -v ${PWD}:/myData -e DOCKER_PATH=${PWD} \
+    -e CLI_ARGS='--ingest_fitsname_restored /myData/my_restored.fits \
+    --ingest_fitsname_residual /myData/my_residual.fits' \
+    --rm artefact.skao.int/rascil-imaging-qa:latest
+
+
+
+**SINGULARITY
+
+- Pull the image:
+
+.. code:: python
+   singularity pull rascil-imaging-qa.img docker://artefact.skao.int/rascil-imaging-qa:latest
+
+- Run the image:
+
+.. code:: python
+   singularity run \
+    --env CLI_ARGS='--ingest_fitsname_restored test-imaging-pipeline-dask_continuum_imaging_restored.fits \
+        --ingest_fitsname_residual test-imaging-pipeline-dask_continuum_imaging_residual.fits' \
+    rascil-imaging-qa.img
+
+
 
 -  Pull the Rascil image:
 
