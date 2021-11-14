@@ -11,6 +11,7 @@ Welcome to eMerlin's documentation!
    :caption: Contents:
 
    DIRAC_UI
+   RASCIL
    BENCHM
    ALMA
 
