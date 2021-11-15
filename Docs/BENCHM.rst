@@ -140,6 +140,9 @@ The .jdl and .sh models samples
    emerlin_rascil_pipeline/erp2_script.py --params input_file1.json
 
    tar czf outputs.tar *.fits
+   
+
+Note: the input_file1.json file can be downloaded from \href{https://github.com/cimpan91/Docs/blob/main/Docs/input_file1.json}{here}
 
 How .jdl model for efficiency use of nodes (modelcpu.jdl) works:
 ----------------------------------------------------------------
