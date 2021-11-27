@@ -38,8 +38,8 @@ From the server where dirac is installed:
 
    .. code:: python
 
-          bash-4.2$ source bashrc
-          bash-4.2$ dirac-proxy-init -g skatelescope.eu_user -M
+          bash-4.2$ /raid/scratch/<your-user>/dirac_ui > source bashrc
+          bash-4.2$ /raid/scratch/<your-user>/dirac_ui > dirac-proxy-init -x -N
 
 -  Add the RASCIL container to the filecathalog using command
    "dirac-dms-add-file"
