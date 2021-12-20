@@ -17,8 +17,7 @@ Job submission Galahad
    pwd; hostname; date
 
    module load python37base gcc920
-   CMD="singularity exec /home/<your-user>/RASCIL-full.img python3 
-   /rascil/examples/scripts/imaging.py"
+   CMD="singularity exec /home/<your-user>/RASCIL-full1.img python3 /rascil/examples/scripts/imaging.py"
    eval $CMD
 
    [<your-user>@galahad ~]$  sbatch slrascil1.sh
@@ -46,8 +45,7 @@ From the server where dirac is installed:
 
    .. code:: python
 
-      dirac-dms-add-file LFN:/skatelescope.eu/user/c/<your-user>/rascil/RASCIL-full.img  
-      RASCIL-full.img  UKI-NORTHGRID-MAN-HEP-disk
+      dirac-dms-add-file LFN:/skatelescope.eu/user/c/<your-user>/rascil/RASCIL-full1.img RASCIL-full1.img  UKI-NORTHGRID-MAN-HEP-disk
 
 -  check where the files has been uploaded using command
    "dirac-dms-filecatalog-cli"
@@ -66,7 +64,7 @@ Job submission - submit .jdl
       StdOutput = "StdOut";
       StdError = "StdErr";
       InputSandbox = {"testR1.sh"};
-      InputData = {"LFN:/skatelescope.eu/user/c/<your-user>/rascil/RASCIL-full.img"};
+      InputData = {"LFN:/skatelescope.eu/user/c/<your-user>/rascil/RASCIL-full1.img"};
       OutputSandbox = {"StdOut","StdErr"};
       OutputData={"imaging_dirty.fits","imaging_psf.fits","imaging_restored.fits"};
       OutputSE ="UKI-NORTHGRID-MAN-HEP-disk";
@@ -75,8 +73,7 @@ Job submission - submit .jdl
 
       cat testR1.sh
       #!/bin/bash
-      singularity exec --cleanenv -H $PWD:/srv --pwd /srv -C RASCIL-full.img
-      python3 /rascil/examples/scripts/imaging.py;
+      singularity exec --cleanenv -H $PWD:/srv --pwd /srv -C RASCIL-full1.img python3 /rascil/examples/scripts/imaging.py;
 
 -  Submit the job
 
@@ -149,7 +146,7 @@ Job submission - submit .py
       j = Job(stdout='StdOut', stderr='StdErr')
       j.setName('TestJob')
       j.setInputSandbox(["testR1py.sh"])
-      j.setInputData(['LFN:/skatelescope.eu/user/c/<your-user>/rascil/RASCILfull.img'])
+      j.setInputData(['LFN:/skatelescope.eu/user/c/<your-user>/rascil/RASCIL-full1.img'])
       j.setOutputSandbox(['StdOut','StdErr'])
       j.setOutputData(['imaging_dirty.fits','imaging_psf.fits','imaging_restored.fits'],
       outputSE='UKI-NORTHGRID-MAN-HEP-disk')
@@ -160,8 +157,7 @@ Job submission - submit .py
 
       bash-4.2$ cat testR1py.sh
       #!/bin/bash
-      singularity exec --cleanenv -H $PWD:/srv --pwd /srv -C RASCIL-full1.img
-      python3 /rascil/examples/scripts/imaging.py
+      singularity exec --cleanenv -H $PWD:/srv --pwd /srv -C RASCIL-full1.img python3 /rascil/examples/scripts/imaging.py
 
 -  Submitting the job
 
