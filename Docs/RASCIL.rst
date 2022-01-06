@@ -7,6 +7,10 @@ Galahad and IRIS - job submission
 Job submission Galahad
 ======================
 
+To get access to Galahad, please contact Anthony Holloway (email: anthony.holloway[at]manchester.ac.uk). A short introduction to Galahad will be provided (eg. 'home' and 'working' folders, accessing and loading available modules etc.) 
+
+To submit a job on Galahad:
+
 .. code:: python
 
    [<your-user>@galahad ~]$ cat  slrascil1.sh
