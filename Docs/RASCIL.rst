@@ -71,7 +71,7 @@ To submit a job on  Dirac SAFE (skylake):
    
  - Check the submitted job:
    
-   [<your-user>@login-e-13 ~]$ squeue | grep dc-cimp1
+   [<your-user>@login-e-13 ~]$ squeue | grep <your-user>
    52726369   skylake slrascil <your-user>  R       0:04      1 cpu-e-820
 
    
