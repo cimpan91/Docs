@@ -1,5 +1,5 @@
 ===============================================
-Galahad and IRIS - job submission
+Galahad, Dirac SAFE and IRIS - job submission
 ===============================================
 
 
@@ -24,13 +24,68 @@ To submit a job on Galahad:
    CMD="singularity exec /home/<your-user>/RASCIL-full1.img python3 /rascil/examples/scripts/imaging.py"
    eval $CMD
 
+
+   Submit the job using the command:
+   
    [<your-user>@galahad ~]$  sbatch slrascil1.sh
    Submitted batch job 3404
 
 
+   Check the submitted job:
+
    [<your-user>@galahad ~]$  squeue
    JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
    3404   CLUSTER slrascil   <your-user>R       0:18      1 compute-0-7
+   
+   
+   
+   
+   
+Job submission Dirac SAFE 
+=========================
+
+To get access to Dirac SAFE, please follow the documentation under `Signing up for Dirac/HPC Resources <https://iris-radioastronomy.readthedocs.io/en/latest/settingup.html>`__ . A short introduction to Dirac SAFE will be sent to the user by email once the account is approved.
+
+To submit a job on  Dirac SAFE (skylake):
+
+.. code:: python
+   [<your-user>@login-e-13 ~]$ cat  slrascil1.sh
+   #!/bin/bash
+   #SBATCH -A DIRAC-TP001-CPU
+   #SBATCH -p skylake
+   #SBATCH --ntasks 1
+   #SBATCH --time 5:0
+   #SBATCH --output=test_%j.log
+   pwd; hostname; date
+
+   CMD="singularity exec /home/<your-user>/RASCIL-full1.img python3 /rascil/examples/scripts/imaging.py"
+   eval $CMD
+
+
+   Submit the job using the command:
+   
+   [<your-user>@login-e-13 ~]$ sbatch slrascil1.sh
+   Submitted batch job 52726369
+   
+   Check the submitted job:
+   
+   [dc-cimp1@login-e-13 ~]$ squeue | grep dc-cimp1
+   52726369   skylake slrascil dc-cimp1  R       0:04      1 cpu-e-820
+
+   
+   Check the results:
+   
+   [dc-cimp1@login-e-13 ~]$ ls
+   imaging_dirty.fits  imaging_restored.fits  
+   imaging_psf.fits   
+   
+   Check the logfile:
+   
+   [dc-cimp1@login-e-13 ~]$ cat test_52726369.log
+   
+   
+   
+   
 
 Job submission IRIS
 ===================
