@@ -70,19 +70,19 @@ To submit a job on  Dirac SAFE (skylake):
    
    Check the submitted job:
    
-   [dc-cimp1@login-e-13 ~]$ squeue | grep dc-cimp1
-   52726369   skylake slrascil dc-cimp1  R       0:04      1 cpu-e-820
+   [<your-user>@login-e-13 ~]$ squeue | grep dc-cimp1
+   52726369   skylake slrascil <your-user>  R       0:04      1 cpu-e-820
 
    
    Check the results:
    
-   [dc-cimp1@login-e-13 ~]$ ls
+   [<your-user>@login-e-13 ~]$ ls
    imaging_dirty.fits  imaging_restored.fits  
    imaging_psf.fits   
    
    Check the logfile:
    
-   [dc-cimp1@login-e-13 ~]$ cat test_52726369.log
+   [<your-user>@login-e-13 ~]$ cat test_52726369.log
    
    
    
