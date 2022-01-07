@@ -25,13 +25,13 @@ To submit a job on Galahad:
    eval $CMD
 
 
-   Submit the job using the command:
+ - Submit the job using the command:
    
    [<your-user>@galahad ~]$  sbatch slrascil1.sh
    Submitted batch job 3404
 
 
-   Check the submitted job:
+ - Check the submitted job:
 
    [<your-user>@galahad ~]$  squeue
    JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
