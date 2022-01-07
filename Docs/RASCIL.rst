@@ -63,24 +63,26 @@ To submit a job on  Dirac SAFE (skylake):
    eval $CMD
 
 
-   Submit the job using the command:
+ - Submit the job using the command:
    
    [<your-user>@login-e-13 ~]$ sbatch slrascil1.sh
    Submitted batch job 52726369
    
-   Check the submitted job:
+   
+ - Check the submitted job:
    
    [<your-user>@login-e-13 ~]$ squeue | grep dc-cimp1
    52726369   skylake slrascil <your-user>  R       0:04      1 cpu-e-820
 
    
-   Check the results:
+ - Check the results:
    
    [<your-user>@login-e-13 ~]$ ls
    imaging_dirty.fits  imaging_restored.fits  
    imaging_psf.fits   
    
-   Check the logfile:
+   
+ - Check the logfile:
    
    [<your-user>@login-e-13 ~]$ cat test_52726369.log
    
