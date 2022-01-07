@@ -49,6 +49,7 @@ To get access to Dirac SAFE, please follow the documentation under `Signing up f
 To submit a job on  Dirac SAFE (skylake):
 
 .. code:: python
+
    [<your-user>@login-e-13 ~]$ cat  slrascil1.sh
    #!/bin/bash
    #SBATCH -A DIRAC-TP001-CPU
