@@ -93,6 +93,8 @@ To submit a job on  Dirac SAFE (skylake):
 Job submission IRIS
 ===================
 
+To get access to IRIS and submit jobs, please follow the documentation under `DIRAC install and basic usage <https://emerlindocs.readthedocs.io/en/latest/DIRAC_UI.html>`__  that gives details how to get a certificate, be approved by a VO and install DIRAC in order to be able to submit jobs to IRIS - jdl and py forms.
+
 From the server where dirac is installed:
 
 -  start proxy before using any dms commands
