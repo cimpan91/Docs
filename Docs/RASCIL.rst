@@ -111,7 +111,7 @@ From the server where dirac is installed:
 
       dirac-dms-add-file LFN:/skatelescope.eu/user/c/<your-user>/rascil/RASCIL-full1.img RASCIL-full1.img  UKI-NORTHGRID-MAN-HEP-disk
 
--  check where the files has been uploaded using command
+-  check where the file has been uploaded using command
    "dirac-dms-filecatalog-cli"
 
 Job submission - submit .jdl 
