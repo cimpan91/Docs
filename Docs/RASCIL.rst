@@ -44,7 +44,7 @@ To submit a job on Galahad:
 Job submission Dirac SAFE 
 =========================
 
-To get access to Dirac SAFE, please follow the documentation under `Signing up for Dirac/HPC Resources <https://iris-radioastronomy.readthedocs.io/en/latest/settingup.html>`__ . A short introduction to Dirac SAFE will be sent to the user by email once the account is approved.
+To get access to Dirac SAFE, please follow the documentation under `Signing up for Dirac/HPC Resources <https://iris-radioastronomy.readthedocs.io/en/latest/settingup.html>`__ . A short introduction to Dirac SAFE will be sent to the user by email once the account is approved. More details can be found on `Cambridge CSD3 cheat sheet <https://iris-radioastronomy.readthedocs.io/en/latest/cambridgehpc.html>`__   and  `Slurm Cheat Sheet <https://iris-radioastronomy.readthedocs.io/en/latest/slurm.html>`__
 
 To submit a job on  Dirac SAFE (skylake):
 
