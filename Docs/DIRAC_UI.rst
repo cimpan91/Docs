@@ -80,11 +80,9 @@ Overview of directories on your server
 
    /home/<your-user> - home directory
 
-   /raid/scratch/<your-user> - a working directory,
-   here DIRAC will be installed
+   /raid/scratch/<your-user> - a working directory, here DIRAC will be installed
 
-   FC:/............................ - belongs to IRIS, can
-   store large data. You need DIRAC installation to
+   FC:/............................ - belongs to IRIS, can store large data. You need DIRAC installation to
    be able to copy files to FC:/ (IRIS)
 
 DIRAC install
@@ -229,17 +227,14 @@ Submitting RASCIL job
    StdOutput = "StdOut";
    StdError = "StdErr";
    InputSandbox = {"testR1.sh"};
-   InputData = {"LFN:/skatelescope.eu/user/c/cimpan/rascil/
-   RASCIL-full1.img"};
-   OutputSandbox = {"StdOut","StdErr","imaging_dirty.fits",
-   "imaging_psf.fits","imaging_restored.fits"};
+   InputData = {"LFN:/skatelescope.eu/user/c/cimpan/rascil/RASCIL-full1.img"};
+   OutputSandbox = {"StdOut","StdErr","imaging_dirty.fits","imaging_psf.fits","imaging_restored.fits"};
    OutputSE ="UKI-NORTHGRID-MAN-HEP-disk";
    Site = "LCG.UKI-NORTHGRID-MAN-HEP.uk";
 
     cat testR1.sh
    #!/bin/bash
-   singularity exec --cleanenv -H $PWD:/srv --pwd /srv -C 
-   RASCIL-full1.img python3 /rascil/examples/scripts/imaging.py;
+   singularity exec --cleanenv -H $PWD:/srv --pwd /srv -C RASCIL-full1.img python3 /rascil/examples/scripts/imaging.py;
 
 Managing RASCIL job
 ===================
